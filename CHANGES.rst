@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0 (xxxx-xx-xx)
+1.0 (UNRELEASED)
 ----------------
 
-- Created recipe with ZopeSkel
-  [""]
+- Initial implementation
+  [erral]
