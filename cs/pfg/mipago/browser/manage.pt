@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cs.pfg.mipago">
+
+  <head><title></title></head>
+
+  <body>
+    <metal:fill fill-slot="main">
+
+      <h1 class="documentFirstHeading" i18n:translate="">
+        Manage payments
+      </h1>
+
+      <table class="listing">
+        <thead>
+          <tr>
+            <th i18n:translate="">
+              Reference number
+            </th>
+            <th i18n:translate="">
+              Payment code
+            </th>
+            <th i18n:translate="">
+              Amount
+            </th>
+            <th i18n:translate="">
+              Date
+            </th>
+            <th i18n:translate="">
+              Status
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr tal:repeat="payment view/get_payments">
+            <td tal:content="payment/reference_number|nothing">
+              12
+            </td>
+            <td tal:content="payment/payment_code|nothing">
+              12
+            </td>
+
+            <td tal:content="payment/amount|nothing">
+              12
+            </td>
+            <td tal:content="payment/datetime|nothing">
+              12
+            </td>
+            <td tal:content="payment/status|nothing">
+              12
+            </td>
+
+
+          </tr>
+        </tbody>
+
+      </table>
+
+    </metal:fill>
+  </body>
+</html>

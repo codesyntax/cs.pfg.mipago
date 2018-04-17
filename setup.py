@@ -40,6 +40,7 @@ setup(name='cs.pfg.mipago',
             'setuptools',
             'Products.PloneFormGen',
             'pymipago',
+            'pytz',
       ],
       extras_require={'test': [
           'plone.app.testing',

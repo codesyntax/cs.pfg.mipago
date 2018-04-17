@@ -32,4 +32,14 @@
     layer="..interfaces.ICS_PFG_MIPAGOLayer"
   />
 
+  <browser:page
+    for="..interfaces.IMiPagoAdapter"
+    name="manage_payments"
+    template="manage.pt"
+    class=".manage.ManagePayments"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.ICS_PFG_MIPAGOLayer"
+  />
+
+
 </configure>
