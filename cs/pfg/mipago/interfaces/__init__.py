@@ -3,12 +3,10 @@
 
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope.interface import Interface
+from .mipagoadapter import IMiPagoAdapter
 
-
-class ICS_PFG_MIPAGO(IDefaultBrowserLayer):
+class ICS_PFG_MIPAGOLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""
 
-class IMiPagoAdapter(Interface):
-    pass
 
 # -*- extra stuff goes here -*-

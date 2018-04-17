@@ -6,5 +6,30 @@
   <include package="plone.app.contentmenu" />
 
   <!-- -*- extra stuff goes here -*- -->
+  <browser:page
+    for="..interfaces.IMiPagoAdapter"
+    name="redirect"
+    class=".redirect.RedirectView"
+    permission="zope2.View"
+    layer="..interfaces.ICS_PFG_MIPAGOLayer"
+  />
+
+
+  <browser:page
+    for="..interfaces.IMiPagoAdapter"
+    name="payment_end"
+    class=".payment.PaymentEnd"
+    permission="zope2.View"
+    layer="..interfaces.ICS_PFG_MIPAGOLayer"
+  />
+
+
+  <browser:page
+    for="..interfaces.IMiPagoAdapter"
+    name="payment_confirmation"
+    class=".confirmation.PaymentConfirmation"
+    permission="zope2.View"
+    layer="..interfaces.ICS_PFG_MIPAGOLayer"
+  />
 
 </configure>

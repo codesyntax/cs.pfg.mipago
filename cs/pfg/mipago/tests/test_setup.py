@@ -26,10 +26,10 @@ class TestSetup(unittest.TestCase):
     def test_browserlayer(self):
         """Test that IICS_PFG_MIPAGO is registered."""
         from cs.pfg.mipago.interfaces import (
-            I{{{ package.browserlayer }}})
+            ICS_PFG_MIPAGOLayer)
         from plone.browserlayer import utils
         self.assertIn(
-            I{{{ package.browserlayer }}},
+            ICS_PFG_MIPAGOLayer,
             utils.registered_layers())
 
 

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+    name="cs.pfg.mipago"
+    interface="cs.pfg.mipago.interfaces.ICS_PFG_MIPAGOLayer"
+  />
+</layers>

@@ -38,7 +38,8 @@ setup(name='cs.pfg.mipago',
       zip_safe=False,
       install_requires=[
             'setuptools',
-            'Products.PloneFormGen'
+            'Products.PloneFormGen',
+            'pymipago',
       ],
       extras_require={'test': [
           'plone.app.testing',

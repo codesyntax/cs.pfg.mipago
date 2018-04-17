@@ -6,7 +6,7 @@
   <property name="description"
     i18n:translate="">Adapter for payments with MiPago</property>
   <property name="content_meta_type">MiPagoAdapter</property>
-  <property name="content_icon">document_icon.gif</property>
+  <property name="content_icon">document_icon.png</property>
   <property name="product">cs.pfg.mipago</property>
   <property name="factory">addMiPagoAdapter</property>
   <property name="immediate_view">atct_edit</property>
