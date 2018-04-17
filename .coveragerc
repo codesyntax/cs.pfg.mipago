@@ -1,0 +1,6 @@
+[report]
+include =
+    cs/*
+omit =
+    */test*
+    */upgrades/*

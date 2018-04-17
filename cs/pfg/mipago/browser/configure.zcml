@@ -1,7 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    i18n_domain="cs.mipago">
+    i18n_domain="cs.pfg.mipago">
 
   <include package="plone.app.contentmenu" />
 

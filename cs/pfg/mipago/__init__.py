@@ -2,7 +2,7 @@
 """
 
 from zope.i18nmessageid import MessageFactory
-from cs.mipago import config
+from cs.pfg.mipago import config
 
 from Products.Archetypes import atapi
 from Products.CMFCore import utils
@@ -11,7 +11,7 @@ from Products.CMFCore import utils
 # This will be imported with the special name "_" in most modules. Strings
 # like _(u"message") will then be extracted by i18n tools for translation.
 
-mipagoMessageFactory = MessageFactory('cs.mipago')
+mipagoMessageFactory = MessageFactory('cs.pfg.mipago')
 
 
 def initialize(context):
