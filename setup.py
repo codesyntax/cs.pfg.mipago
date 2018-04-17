@@ -41,10 +41,9 @@ setup(name='cs.pfg.mipago',
             'Products.PloneFormGen'
       ],
       extras_require={'test': [
-          'plone.app.testing >= 4.2.2',
+          'plone.app.testing',
 
-      ]}
-      test_suite='cs.pfg.mipago.tests.test_docs.test_suite',
+      ]},
       entry_points="""
       # -*- entry_points -*-
       [z3c.autoinclude.plugin]
