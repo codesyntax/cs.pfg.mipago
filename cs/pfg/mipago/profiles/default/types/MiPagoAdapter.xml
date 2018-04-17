@@ -29,4 +29,9 @@
     url_expr="string:${object_url}/edit" visible="True">
     <permission value="Modify portal content" />
   </action>
+  <action title="Manage payments" action_id="manage_payments" category="object" condition_expr=""
+    url_expr="string:${object_url}/manage_payments" visible="True">
+    <permission value="Modify portal content" />
+  </action>
+
 </object>
