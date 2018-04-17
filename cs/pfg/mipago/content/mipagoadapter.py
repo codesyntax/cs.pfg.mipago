@@ -131,6 +131,19 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             description='',
             label=_('Enter the amount to be paid'),)
     ),
+    atapi.IntegerField(
+        'mipago_reference_number_start',
+        required=True,
+        storage=atapi.AnnotationStorage(),
+        searchable=False,
+        default=0,
+        widget=atapi.IntegerWidget(
+            description='',
+            label=_('Enter the number of the first reference number'),
+            default=_('All payments will have consecutive numbers, enter here the value of the first.'),
+            size=3)
+    ),
+
     TALESString('mipago_payment_amountOverride',
         schemata='overrides',
         searchable=0,
@@ -257,7 +270,7 @@ class MiPagoAdapter(FormActionAdapter):
             reference_numbers.sort()
             return int(reference_numbers[-1])
 
-        return 0
+        return self.getMipago_reference_number_start()
 
 
     def register_payment(self, payment_code, reference_number, amount):
