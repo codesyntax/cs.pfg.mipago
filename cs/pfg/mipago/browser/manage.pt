@@ -16,7 +16,7 @@
         Manage payments
       </h1>
 
-      <table class="listing">
+      <table class="listing" tal:condition="view/get_payments">
         <thead>
           <tr>
             <th i18n:translate="">
@@ -33,6 +33,9 @@
             </th>
             <th i18n:translate="">
               Status
+            </th>
+            <th i18n:translate="">
+              Actions
             </th>
           </tr>
         </thead>
@@ -54,12 +57,24 @@
             <td tal:content="payment/status|nothing">
               12
             </td>
-
-
+            <td>
+              <form tal:attributes="action string:${here/absolute_url}/delete_payments">
+                <input type="hidden" name="pcode" tal:attributes="value payment/payment_code|nothing">
+                <button type="submit" class="destructive" for="delete_payments" i18n:translate="">Delete payment</button>
+              </form>
+            </td>
           </tr>
         </tbody>
-
       </table>
+
+      <form tal:attributes="action string:${here/absolute_url}/delete_payments" tal:condition="view/get_payments">
+        <button type="submit" class="destructive" for="delete_payments" i18n:translate="">Delete all payments</button>
+      </form>
+
+
+      <div id="no-payments" tal:condition="not:view/get_payments" i18n:translate="">
+        There are no payments yet.
+      </div>
 
     </metal:fill>
   </body>

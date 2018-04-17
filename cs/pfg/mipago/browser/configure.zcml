@@ -41,5 +41,13 @@
     layer="..interfaces.ICS_PFG_MIPAGOLayer"
   />
 
+  <browser:page
+    for="..interfaces.IMiPagoAdapter"
+    name="delete_payments"
+    class=".manage.DeletePayments"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.ICS_PFG_MIPAGOLayer"
+  />
+
 
 </configure>
