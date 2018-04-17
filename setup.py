@@ -12,27 +12,9 @@ def read(*rnames):
 version = '1.0'
 
 long_description = (
-    read('README.txt')
-    + '\n' +
-    'Change history\n'
-    '**************\n'
-    + '\n' +
-    read('CHANGES.txt')
-    + '\n' +
-    'Detailed Documentation\n'
-    '**********************\n'
-    + '\n' +
-    read('cs', 'mipago', 'README.txt')
-    + '\n' +
-    'Contributors\n'
-    '************\n'
-    + '\n' +
-    read('CONTRIBUTORS.txt')
-    + '\n' +
-    'Download\n'
-    '********\n')
-
-tests_require = ['zope.testing']
+    open('README.rst').read() + '\n' +
+    open('CHANGES.rst').read() + '\n'
+)
 
 setup(name='cs.pfg.mipago',
       version=version,
@@ -54,11 +36,14 @@ setup(name='cs.pfg.mipago',
       namespace_packages=['cs', 'cs.pfg'],
       include_package_data=True,
       zip_safe=False,
-      install_requires=['setuptools',
-                        # -*- Extra requirements: -*-
-                        ],
-      tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
+      install_requires=[
+            'setuptools',
+            'Products.PloneFormGen'
+      ],
+      extras_require={'test': [
+          'plone.app.testing >= 4.2.2',
+
+      ]}
       test_suite='cs.pfg.mipago.tests.test_docs.test_suite',
       entry_points="""
       # -*- entry_points -*-
