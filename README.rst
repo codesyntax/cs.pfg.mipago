@@ -3,8 +3,8 @@ cs.pfg.mipago
 =============
 
 
-.. image:: https://travis-ci.org/codesyntax/pymipago.svg?branch=master
-        :target: https://travis-ci.org/codesyntax/pymipago
+.. image:: https://travis-ci.org/codesyntax/cs.pfg.mipago.svg?branch=master
+        :target: https://travis-ci.org/codesyntax/cs.pfg.mipago
 
 
 
