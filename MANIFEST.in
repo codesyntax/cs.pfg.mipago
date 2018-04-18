@@ -1,2 +1,7 @@
 recursive-include cs *
 global-exclude *pyc
+include *.rst
+include *.txt
+recursive-include docs *.py
+recursive-include docs *.rst
+recursive-exclude local *
