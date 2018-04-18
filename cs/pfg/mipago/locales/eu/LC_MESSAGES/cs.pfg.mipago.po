@@ -1,183 +1,185 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2018-04-18 10:22+0200\n"
+"Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+"Language: eu\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ./content/mipagoadapter.py:35
 msgid "9050299: Notebook 60, modality 1"
-msgstr ""
+msgstr "9050299: 60 koadernoa, 1 modalitatea"
 
 #: ./content/mipagoadapter.py:37
 msgid "9050794: Notebook 57"
-msgstr ""
+msgstr "9050794: 57 koadernoa"
 
 #: ./content/mipagoadapter.py:36
 msgid "9052180: Notebook 60, modality 2"
-msgstr ""
+msgstr "9052180: 60 koadernoa, 2 modalitatea"
 
 #: ./browser/manage.pt:37
 msgid "Actions"
-msgstr ""
+msgstr "Ekintzak"
 
 #: ./profiles/default/types/MiPagoAdapter.xml
 msgid "Adapter for payments with MiPago"
-msgstr ""
+msgstr "Nire Ordainketa zerbitzuarekin ordainketak egiteko ekintza"
 
 #: ./browser/manage.py:74
 msgid "All payments have been deleted"
-msgstr ""
+msgstr "Ordainketa guztiak ezabatu dira"
 
 #: ./content/mipagoadapter.py:143
 msgid "All payments will have consecutive numbers, enter here the value of the first."
-msgstr ""
+msgstr "Ordainketa guztiek jarraian dauden erreferentzia zenbakia edukiko dut, sartu hemen kontaketa hasteko lehenengo zenbakia."
 
 #: ./browser/manage.pt:28
 msgid "Amount"
-msgstr ""
+msgstr "Kopurua"
 
 #: ./content/mipagoadapter.py:157
 msgid "Amount Expression"
-msgstr ""
+msgstr "Kopuruaren espresioa"
 
 #: ./browser/manage.pt:31
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: ./browser/manage.pt:71
 msgid "Delete all payments"
-msgstr ""
+msgstr "Ordainketa guztiak ezabatu"
 
 #: ./browser/manage.pt:63
 msgid "Delete payment"
-msgstr ""
+msgstr "Ordainketa ezabatu"
 
 #: ./content/mipagoadapter.py:44
 msgid "Enter the CPR code of this payment"
-msgstr ""
+msgstr "Ordainketa honen CPR kodea sartu"
 
 #: ./content/mipagoadapter.py:132
 msgid "Enter the amount to be paid"
-msgstr ""
+msgstr "Ordainketa honen kopurua sartu"
 
 #: ./content/mipagoadapter.py:60
 msgid "Enter the format code of this payment"
-msgstr ""
+msgstr "Ordainketa honen formatua sartu"
 
 #: ./content/mipagoadapter.py:91
 msgid "Enter the number of the days that the user has to pay counting from today"
-msgstr ""
+msgstr "Ordainketa hau gauzatzeko dagoen egun kopurua sartu"
 
 #: ./content/mipagoadapter.py:142
 msgid "Enter the number of the first reference number"
-msgstr ""
+msgstr "Lehenengo erreferentzia zenbakia sartu"
 
 #: ./content/mipagoadapter.py:70
 msgid "Enter the sender code"
-msgstr ""
+msgstr "Ordainketa jasoko duenaren kodea sartu"
 
 #: ./content/mipagoadapter.py:81
 msgid "Enter the suffix of this payment"
-msgstr ""
+msgstr "Ordainketaren atzizkia sartu"
 
 #: ./browser/manage.pt:15
 msgid "Manage payments"
-msgstr ""
+msgstr "Ordainketak kudeatu"
 
 #: ./profiles/default/types/MiPagoAdapter.xml
 msgid "MiPagoAdapter"
-msgstr ""
+msgstr "MiPagoAdapter"
 
 #: ./content/mipagoadapter.py:53
 msgid "Notebook 57, short format"
-msgstr ""
+msgstr "57 koadernoa, formatu laburra"
 
 #: ./content/mipagoadapter.py:50
 msgid "Notebook 60, modality 1, short format"
-msgstr ""
+msgstr "60 koadernoa, 1 modalitatea, formatu laburra"
 
 #: ./content/mipagoadapter.py:52
 msgid "Notebook 60, modality 2, long format"
-msgstr ""
+msgstr "60 koadernoa, 2 modalitatea, formatu luzea"
 
 #: ./content/mipagoadapter.py:51
 msgid "Notebook 60, modality 2, short format"
-msgstr ""
+msgstr "60 koadernoa, 2 modalitatea, formatu laburra"
 
 #: ./content/mipagoadapter.py:116
 msgid "Offline payment"
-msgstr ""
+msgstr "Offline ordainketa: bankuan egin beharrekoa"
 
 #: ./content/mipagoadapter.py:117
 msgid "Online payment"
-msgstr ""
+msgstr "Online ordainketa"
 
 #: ./browser/manage.py:43
 msgid "Payment NOT completed"
-msgstr ""
+msgstr "Ordainketa EZ DA gauzatu"
 
 #: ./browser/manage.pt:25
 msgid "Payment code"
-msgstr ""
+msgstr "Ordainketa kodea"
 
 #: ./browser/manage.py:41
 msgid "Payment completed successfuly"
-msgstr ""
+msgstr "Ordainketa ondo gauzatu da"
 
 #: ./browser/manage.py:71
 msgid "Payment was deleted"
-msgstr ""
+msgstr "Ordainketa ondo ezabatu da"
 
 #: ./configure.zcml:21
 msgid "PloneFormGen adapter to pay with Basque Government's payment service"
-msgstr ""
+msgstr "PloneFormGenerako ekintza, Eusko Jaurlaritzaren Nire Ordainketa zerbitzua erabiltzeko"
 
 #: ./configure.zcml:21
 msgid "PloneFormGen adapter to pay with MiPago service"
-msgstr ""
+msgstr "PloneFormGenerako ekintza, Eusko Jaurlaritzaren Nire Ordainketa zerbitzua erabiltzeko"
 
 #: ./browser/manage.pt:22
 msgid "Reference number"
-msgstr ""
+msgstr "Erreferentzia zenbakia"
 
 #: ./content/mipagoadapter.py:259
 msgid "Reference number is bigger than 10 digits. Please delete old reference numbers"
-msgstr ""
+msgstr "Erreferentzia zenbakiak 10 zenbaki baino gehiago ditu. "
 
 #: ./content/mipagoadapter.py:121
 msgid "Select the available payment modes"
-msgstr ""
+msgstr "Aukeratu erabiltzaileari eskainiko zaizkion ordainketa moduak"
 
 #: ./content/mipagoadapter.py:106
 msgid "Select the language of the screens"
-msgstr ""
+msgstr "Aukeratu ordainketa pantailetako hizkuntza"
 
 #: ./browser/manage.pt:34
 msgid "Status"
-msgstr ""
+msgstr "Egoera"
 
 #: ./browser/manage.pt:75
 msgid "There are no payments yet."
-msgstr ""
+msgstr "Ez dago ordainketarik."
 
 #: ./content/mipagoadapter.py:241
 msgid "There was an error processing the payment. Please try again"
-msgstr ""
+msgstr "Errorea gertatu da ordainketa egiterakoan. Saiatu berriz mesedez."
 
 #: ./browser/manage.py:45
 msgid "Unkown status"
-msgstr ""
+msgstr "Egoera ezezaguna"
 
 #: ./browser/manage.py:39
 msgid "User redirected to MiPago"
-msgstr ""
+msgstr "Erabiltzailea Nire Ordainketara ondo bidali da"
