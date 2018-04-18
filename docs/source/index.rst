@@ -13,6 +13,7 @@ cs.pfg.mipago documentation
    :maxdepth: 2
 
    usage
+   history
 
 
 
