@@ -1,183 +1,185 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2018-04-18 10:49+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+"Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
-#: ./content/mipagoadapter.py:35
+#: content/mipagoadapter.py:35
 msgid "9050299: Notebook 60, modality 1"
-msgstr ""
+msgstr "9050299: cuadernos 60, modalidad 1"
 
-#: ./content/mipagoadapter.py:37
+#: content/mipagoadapter.py:37
 msgid "9050794: Notebook 57"
-msgstr ""
+msgstr "9050794: cuaderno 57"
 
-#: ./content/mipagoadapter.py:36
+#: content/mipagoadapter.py:36
 msgid "9052180: Notebook 60, modality 2"
-msgstr ""
+msgstr "9052180: cuaderno 60, modalidad 2"
 
-#: ./browser/manage.pt:37
+#: browser/manage.pt:37
 msgid "Actions"
-msgstr ""
+msgstr "Acciones"
 
-#: ./profiles/default/types/MiPagoAdapter.xml
+#: profiles/default/types/MiPagoAdapter.xml
 msgid "Adapter for payments with MiPago"
-msgstr ""
+msgstr "Acción para hacer pagos con MiPago"
 
-#: ./browser/manage.py:74
+#: browser/manage.py:74
 msgid "All payments have been deleted"
-msgstr ""
+msgstr "Todos los pagos se han eliminado correctamente"
 
-#: ./content/mipagoadapter.py:143
+#: content/mipagoadapter.py:143
 msgid "All payments will have consecutive numbers, enter here the value of the first."
-msgstr ""
+msgstr "Los pagos tienen números de referencia consecutivos, introduzca el primer número de referencia aquí"
 
-#: ./browser/manage.pt:28
+#: browser/manage.pt:28
 msgid "Amount"
-msgstr ""
+msgstr "Cantidad"
 
-#: ./content/mipagoadapter.py:157
+#: content/mipagoadapter.py:157
 msgid "Amount Expression"
-msgstr ""
+msgstr "Expresión para calcular la cantidad"
 
-#: ./browser/manage.pt:31
+#: browser/manage.pt:31
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
-#: ./browser/manage.pt:71
+#: browser/manage.pt:71
 msgid "Delete all payments"
-msgstr ""
+msgstr "Eliminar todos los pagos"
 
-#: ./browser/manage.pt:63
+#: browser/manage.pt:63
 msgid "Delete payment"
-msgstr ""
+msgstr "Eliminar pago"
 
-#: ./content/mipagoadapter.py:44
+#: content/mipagoadapter.py:44
 msgid "Enter the CPR code of this payment"
-msgstr ""
+msgstr "Introduzca el código CPR de este pago"
 
-#: ./content/mipagoadapter.py:132
+#: content/mipagoadapter.py:132
 msgid "Enter the amount to be paid"
-msgstr ""
+msgstr "Introduzca la cantidad a pagar"
 
-#: ./content/mipagoadapter.py:60
+#: content/mipagoadapter.py:60
 msgid "Enter the format code of this payment"
-msgstr ""
+msgstr "Introduzca el código del formato del pago"
 
-#: ./content/mipagoadapter.py:91
+#: content/mipagoadapter.py:91
 msgid "Enter the number of the days that the user has to pay counting from today"
-msgstr ""
+msgstr "Introduzca el número de días de límite que tiene el usuario para completar el pago"
 
-#: ./content/mipagoadapter.py:142
+#: content/mipagoadapter.py:142
 msgid "Enter the number of the first reference number"
-msgstr ""
+msgstr "Introduzca el primer número de referencia"
 
-#: ./content/mipagoadapter.py:70
+#: content/mipagoadapter.py:70
 msgid "Enter the sender code"
-msgstr ""
+msgstr "Introduzca el código del emisor del pago"
 
-#: ./content/mipagoadapter.py:81
+#: content/mipagoadapter.py:81
 msgid "Enter the suffix of this payment"
-msgstr ""
+msgstr "Introduzca el código del sufijo del pago"
 
-#: ./browser/manage.pt:15
+#: browser/manage.pt:15
 msgid "Manage payments"
-msgstr ""
+msgstr "Gestionar Pagos"
 
-#: ./profiles/default/types/MiPagoAdapter.xml
+#: profiles/default/types/MiPagoAdapter.xml
 msgid "MiPagoAdapter"
-msgstr ""
+msgstr "Adaptador MiPago"
 
-#: ./content/mipagoadapter.py:53
+#: content/mipagoadapter.py:53
 msgid "Notebook 57, short format"
-msgstr ""
+msgstr "Cuaderno 57, formato corto"
 
-#: ./content/mipagoadapter.py:50
+#: content/mipagoadapter.py:50
 msgid "Notebook 60, modality 1, short format"
-msgstr ""
+msgstr "Cuaderno 60, modalidad 1, formato corto"
 
-#: ./content/mipagoadapter.py:52
+#: content/mipagoadapter.py:52
 msgid "Notebook 60, modality 2, long format"
-msgstr ""
+msgstr "Cuaderno 60, modalidad 2, formato largo"
 
-#: ./content/mipagoadapter.py:51
+#: content/mipagoadapter.py:51
 msgid "Notebook 60, modality 2, short format"
-msgstr ""
+msgstr "Cuaderno 60, modalidad 2, formato corto"
 
-#: ./content/mipagoadapter.py:116
+#: content/mipagoadapter.py:116
 msgid "Offline payment"
-msgstr ""
+msgstr "Pago offline (en el banco)"
 
-#: ./content/mipagoadapter.py:117
+#: content/mipagoadapter.py:117
 msgid "Online payment"
-msgstr ""
+msgstr "Pago online"
 
-#: ./browser/manage.py:43
+#: browser/manage.py:43
 msgid "Payment NOT completed"
-msgstr ""
+msgstr "Pago NO completado"
 
-#: ./browser/manage.pt:25
+#: browser/manage.pt:25
 msgid "Payment code"
-msgstr ""
+msgstr "Código del pago"
 
-#: ./browser/manage.py:41
+#: browser/manage.py:41
 msgid "Payment completed successfuly"
-msgstr ""
+msgstr "Pago correcto"
 
-#: ./browser/manage.py:71
+#: browser/manage.py:71
 msgid "Payment was deleted"
-msgstr ""
+msgstr "El pago ha sido eliminado"
 
-#: ./configure.zcml:21
+#: configure.zcml:21
 msgid "PloneFormGen adapter to pay with Basque Government's payment service"
-msgstr ""
+msgstr "Adaptador de PloneFormGen para realizar pagos con el servicio Mi Pago del Gobierno Vasco"
 
-#: ./configure.zcml:21
+#: configure.zcml:21
 msgid "PloneFormGen adapter to pay with MiPago service"
-msgstr ""
+msgstr "Adaptador de PloneFormGen para realizar pagos con el servicio Mi Pago del Gobierno Vasco"
 
-#: ./browser/manage.pt:22
+#: browser/manage.pt:22
 msgid "Reference number"
-msgstr ""
+msgstr "Número de referncia"
 
-#: ./content/mipagoadapter.py:259
+#: content/mipagoadapter.py:259
 msgid "Reference number is bigger than 10 digits. Please delete old reference numbers"
-msgstr ""
+msgstr "El número de referencia tiene más de 10 dígitos. Elimine por favor los pagos antiguos"
 
-#: ./content/mipagoadapter.py:121
+#: content/mipagoadapter.py:121
 msgid "Select the available payment modes"
-msgstr ""
+msgstr "Seleccione los modos de pago disponibles que se mostrarán al usuario"
 
-#: ./content/mipagoadapter.py:106
+#: content/mipagoadapter.py:106
 msgid "Select the language of the screens"
-msgstr ""
+msgstr "Seleccione el idioma en el que se mostrarán las pantallas de pago"
 
-#: ./browser/manage.pt:34
+#: browser/manage.pt:34
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
-#: ./browser/manage.pt:75
+#: browser/manage.pt:75
 msgid "There are no payments yet."
-msgstr ""
+msgstr "No hay pagos."
 
-#: ./content/mipagoadapter.py:241
+#: content/mipagoadapter.py:241
 msgid "There was an error processing the payment. Please try again"
-msgstr ""
+msgstr "Ha ocurrido un error al realizar el pago. Inténtelo otra vez por favor"
 
-#: ./browser/manage.py:45
+#: browser/manage.py:45
 msgid "Unkown status"
-msgstr ""
+msgstr "Estado desconocido"
 
-#: ./browser/manage.py:39
+#: browser/manage.py:39
 msgid "User redirected to MiPago"
-msgstr ""
+msgstr "Usuario redirigido a Mi Pago"
