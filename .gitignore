@@ -22,6 +22,8 @@ buildout-cache/
 develop-eggs/
 docs/doctrees
 docs/html
+docs/Makefile
+docs/make.bat
 eggs/
 htmlcov/
 include/
