@@ -44,7 +44,8 @@ setup(name='cs.pfg.mipago',
       ],
       extras_require={'test': [
           'plone.app.testing [robot]',
-          'plone.api'
+          'plone.api',
+          'plone.app.robotframework'
 
       ]},
       entry_points="""
