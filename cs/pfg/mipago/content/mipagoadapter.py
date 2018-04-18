@@ -47,10 +47,10 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
     atapi.StringField(
         'mipago_format',
         vocabulary=DisplayList([
-            ('502', _(u'Notebook 60, modality 1, short format')),
-            ('521', _(u'Notebook 60, modality 2, short format')),
-            ('522', _(u'Notebook 60, modality 2, long format')),
-            ('507', _(u'Notebook 57, short format')),
+            ('502', _(u'502: Notebook 60, modality 1, short format')),
+            ('521', _(u'521: Notebook 60, modality 2, short format')),
+            ('522', _(u'522: Notebook 60, modality 2, long format')),
+            ('507', _(u'507: Notebook 57, short format')),
         ]),
         required=True,
         storage=atapi.AnnotationStorage(),
@@ -237,7 +237,10 @@ class MiPagoAdapter(FormActionAdapter):
 
             return request.response.redirect(self.absolute_url() + '/@@redirect', lock=1)
 
-        except:
+        except Exception, e:
+            from logging import getLogger
+            log = getLogger(__name__)
+            log.exception(e)
             return {FORM_ERROR_MARKER: _(u'There was an error processing the payment. Please try again')}
 
     def get_amount(self):

@@ -2,7 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"PO-Revision-Date: 2018-04-18 10:49+0200\n"
+"PO-Revision-Date: 2018-04-18 11:45+0200\n"
+"Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,10 +13,24 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
-"Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
-"Language-Team: \n"
 "Language: es\n"
 "X-Generator: Poedit 1.8.7.1\n"
+
+#: content/mipagoadapter.py:50
+msgid "502: Notebook 60, modality 1, short format"
+msgstr "502: cuaderno 60, modalidad 1, formato corto"
+
+#: content/mipagoadapter.py:53
+msgid "507: Notebook 57, short format"
+msgstr "507: cuaderno 57, formato corto"
+
+#: content/mipagoadapter.py:51
+msgid "521: Notebook 60, modality 2, short format"
+msgstr "521: cuaderno 60, modalidad 2, formato corto"
+
+#: content/mipagoadapter.py:52
+msgid "522: Notebook 60, modality 2, long format"
+msgstr "522: cuaderno 60. modalidad 2, formato largo"
 
 #: content/mipagoadapter.py:35
 msgid "9050299: Notebook 60, modality 1"
@@ -100,22 +116,6 @@ msgstr "Gestionar Pagos"
 msgid "MiPagoAdapter"
 msgstr "Adaptador MiPago"
 
-#: content/mipagoadapter.py:53
-msgid "Notebook 57, short format"
-msgstr "Cuaderno 57, formato corto"
-
-#: content/mipagoadapter.py:50
-msgid "Notebook 60, modality 1, short format"
-msgstr "Cuaderno 60, modalidad 1, formato corto"
-
-#: content/mipagoadapter.py:52
-msgid "Notebook 60, modality 2, long format"
-msgstr "Cuaderno 60, modalidad 2, formato largo"
-
-#: content/mipagoadapter.py:51
-msgid "Notebook 60, modality 2, short format"
-msgstr "Cuaderno 60, modalidad 2, formato corto"
-
 #: content/mipagoadapter.py:116
 msgid "Offline payment"
 msgstr "Pago offline (en el banco)"
@@ -140,11 +140,11 @@ msgstr "Pago correcto"
 msgid "Payment was deleted"
 msgstr "El pago ha sido eliminado"
 
-#: configure.zcml:21
+#: configure.zcml:22
 msgid "PloneFormGen adapter to pay with Basque Government's payment service"
 msgstr "Adaptador de PloneFormGen para realizar pagos con el servicio Mi Pago del Gobierno Vasco"
 
-#: configure.zcml:21
+#: configure.zcml:22
 msgid "PloneFormGen adapter to pay with MiPago service"
 msgstr "Adaptador de PloneFormGen para realizar pagos con el servicio Mi Pago del Gobierno Vasco"
 
@@ -152,7 +152,7 @@ msgstr "Adaptador de PloneFormGen para realizar pagos con el servicio Mi Pago de
 msgid "Reference number"
 msgstr "Número de referncia"
 
-#: content/mipagoadapter.py:259
+#: content/mipagoadapter.py:262
 msgid "Reference number is bigger than 10 digits. Please delete old reference numbers"
 msgstr "El número de referencia tiene más de 10 dígitos. Elimine por favor los pagos antiguos"
 
@@ -172,7 +172,7 @@ msgstr "Estado"
 msgid "There are no payments yet."
 msgstr "No hay pagos."
 
-#: content/mipagoadapter.py:241
+#: content/mipagoadapter.py:244
 msgid "There was an error processing the payment. Please try again"
 msgstr "Ha ocurrido un error al realizar el pago. Inténtelo otra vez por favor"
 

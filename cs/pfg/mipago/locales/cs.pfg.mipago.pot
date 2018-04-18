@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-04-18 08:03+0000\n"
+"POT-Creation-Date: 2018-04-18 09:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,6 +22,22 @@ msgid "
                 PLEASE NOTE: errors in the evaluation of this expression will cause
                 an error on form display.
             "
+msgstr ""
+
+#: ./content/mipagoadapter.py:50
+msgid "502: Notebook 60, modality 1, short format"
+msgstr ""
+
+#: ./content/mipagoadapter.py:53
+msgid "507: Notebook 57, short format"
+msgstr ""
+
+#: ./content/mipagoadapter.py:51
+msgid "521: Notebook 60, modality 2, short format"
+msgstr ""
+
+#: ./content/mipagoadapter.py:52
+msgid "522: Notebook 60, modality 2, long format"
 msgstr ""
 
 #: ./content/mipagoadapter.py:35
@@ -108,22 +124,6 @@ msgstr ""
 msgid "MiPagoAdapter"
 msgstr ""
 
-#: ./content/mipagoadapter.py:53
-msgid "Notebook 57, short format"
-msgstr ""
-
-#: ./content/mipagoadapter.py:50
-msgid "Notebook 60, modality 1, short format"
-msgstr ""
-
-#: ./content/mipagoadapter.py:52
-msgid "Notebook 60, modality 2, long format"
-msgstr ""
-
-#: ./content/mipagoadapter.py:51
-msgid "Notebook 60, modality 2, short format"
-msgstr ""
-
 #: ./content/mipagoadapter.py:116
 msgid "Offline payment"
 msgstr ""
@@ -148,11 +148,11 @@ msgstr ""
 msgid "Payment was deleted"
 msgstr ""
 
-#: ./configure.zcml:21
+#: ./configure.zcml:22
 msgid "PloneFormGen adapter to pay with Basque Government's payment service"
 msgstr ""
 
-#: ./configure.zcml:21
+#: ./configure.zcml:22
 msgid "PloneFormGen adapter to pay with MiPago service"
 msgstr ""
 
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Reference number"
 msgstr ""
 
-#: ./content/mipagoadapter.py:259
+#: ./content/mipagoadapter.py:262
 msgid "Reference number is bigger than 10 digits. Please delete old reference numbers"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgstr ""
 msgid "There are no payments yet."
 msgstr ""
 
-#: ./content/mipagoadapter.py:241
+#: ./content/mipagoadapter.py:244
 msgid "There was an error processing the payment. Please try again"
 msgstr ""
 
