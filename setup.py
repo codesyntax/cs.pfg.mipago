@@ -43,7 +43,7 @@ setup(name='cs.pfg.mipago',
             'pytz',
       ],
       extras_require={'test': [
-          'plone.app.testing',
+          'plone.app.testing [robot]',
           'plone.api'
 
       ]},
