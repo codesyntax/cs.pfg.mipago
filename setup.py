@@ -44,6 +44,7 @@ setup(name='cs.pfg.mipago',
       ],
       extras_require={'test': [
           'plone.app.testing',
+          'plone.api'
 
       ]},
       entry_points="""
