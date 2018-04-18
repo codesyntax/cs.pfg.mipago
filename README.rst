@@ -7,10 +7,15 @@ cs.pfg.mipago
         :target: https://travis-ci.org/codesyntax/cs.pfg.mipago
 
 
+.. image:: https://readthedocs.org/projects/cspfgmipago/badge/?version=latest
+        :target: https://cspfgmipago.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
 
 A PloneFormGen_ addon to make payments with Basque Government's payment service
 
 * Free software: GNU General Public License v2
+* Documentation: https://cspfgmipago.readthedocs.io
+
 
 Features
 --------
