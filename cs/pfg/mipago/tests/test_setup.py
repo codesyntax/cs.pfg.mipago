@@ -53,8 +53,8 @@ class TestUninstall(unittest.TestCase):
     def test_browserlayer_removed(self):
         """Test that ICS_PFG_MIPAGO is removed."""
         from cs.pfg.mipago.interfaces import \
-            ICS_PFG_MIPAGO
+            ICS_PFG_MIPAGOLayer
         from plone.browserlayer import utils
         self.assertNotIn(
-            ICS_PFG_MIPAGO,
+            ICS_PFG_MIPAGOLayer,
             utils.registered_layers())

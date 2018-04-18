@@ -6,7 +6,7 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
-
+from plone.app.testing import PloneWithPackageLayer
 import cs.pfg.mipago
 
 
@@ -18,9 +18,15 @@ class CS_PFG_MIPAGO(PloneSandboxLayer):
         # Load any other ZCML that is required for your tests.
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
-        import plone.app.dexterity
-        self.loadZCML(package=plone.app.dexterity)
+        import Products.Five
+        import Products.PloneFormGen
+        import plone.app.layout
+        self.loadZCML(package=Products.Five)
+        self.loadZCML(package=Products.PloneFormGen)
         self.loadZCML(package=cs.pfg.mipago)
+        self.loadZCML(package=plone.app.layout)
+
+        z2.installProduct(app, 'cs.pfg.mipago')
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'cs.pfg.mipago:default')

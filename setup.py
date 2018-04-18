@@ -41,6 +41,8 @@ setup(name='cs.pfg.mipago',
             'Products.PloneFormGen',
             'pymipago',
             'pytz',
+            'Plone',
+            'zope.configuration',
       ],
       extras_require={'test': [
           'plone.app.testing [robot]',
