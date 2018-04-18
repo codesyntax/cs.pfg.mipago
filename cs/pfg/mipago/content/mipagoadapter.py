@@ -25,6 +25,7 @@ from zope.annotation.interfaces import IAnnotations
 from zope.interface import implements
 
 import datetime
+import os
 
 MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
 
@@ -220,6 +221,11 @@ class MiPagoAdapter(FormActionAdapter):
 
             Messages may be string types or zope.i18nmessageid objects.
         """
+        if self.getMipago_use_debug_environment():
+            os.environ['DEBUG'] = 'True'
+            from logging import getLogger
+            log = getLogger(__name__)
+            log.info('Payment requests are being sent to the TEST environment')
 
         amount = self.get_amount()
         cpr = self.getMipago_cpr_code()
@@ -233,7 +239,6 @@ class MiPagoAdapter(FormActionAdapter):
         payment_modes = self.getMipago_payment_modes()
         period_date = datetime.datetime.now() + datetime.timedelta(days=payment_period)
         try:
-
             html, code = make_payment_request(cpr, sender, format, suffix, reference_number, period_date, amount, language, return_url, payment_modes)
             if REQUEST is not None:
                 request = REQUEST
@@ -244,13 +249,20 @@ class MiPagoAdapter(FormActionAdapter):
 
             request.SESSION[MIPAGO_HTML_KEY] = html
 
+            if self.getMipago_use_debug_environment() and 'DEBUG' in os.environ:
+                del os.environ['DEBUG']
+
             return request.response.redirect(self.absolute_url() + '/@@redirect', lock=1)
 
         except Exception, e:
             from logging import getLogger
             log = getLogger(__name__)
             log.exception(e)
+            if self.getMipago_use_debug_environment() and 'DEBUG' in os.environ:
+                del os.environ['DEBUG']
+
             return {FORM_ERROR_MARKER: _(u'There was an error processing the payment. Please try again')}
+
 
     def get_amount(self):
         if shasattr(self, 'mipago_payment_amountOverride') and self.getRawMipago_payment_amountOverride():
