@@ -143,6 +143,15 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             default=_('All payments will have consecutive numbers, enter here the value of the first.'),
             size=3)
     ),
+    atapi.BooleanField(
+        'mipago_use_debug_environment',
+        required=False,
+        default=True,
+        widget=atapi.BooleanWidget(
+            description='',
+            label=_('Check if the payments should be made on the TEST platform'),
+        )
+    ),
 
     TALESString('mipago_payment_amountOverride',
         schemata='overrides',
