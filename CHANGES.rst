@@ -4,6 +4,9 @@ Changelog
 1.0b2 (unreleased)
 ------------------
 
+- Export data in XLS format.
+  [erral]
+
 - Save the form data in an annotation to show in the thanks page.
   [erral]
 
