@@ -237,7 +237,7 @@ class MiPagoAdapter(FormActionAdapter):
         reference_number = self.get_reference_number()
         payment_period = self.getMipago_payment_limit_date()
         language = self.getMipago_screen_language()
-        return_url = aq_parent(self).absolute_url() + '/fg_result_view'
+        return_url = aq_parent(self).absolute_url() + '/payment_end'
         payment_modes = self.getMipago_payment_modes()
         period_date = datetime.datetime.now() + datetime.timedelta(days=payment_period)
         try:
