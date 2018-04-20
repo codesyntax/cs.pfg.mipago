@@ -6,6 +6,7 @@ from Acquisition import aq_parent
 from cs.pfg.mipago import mipagoMessageFactory as _
 from cs.pfg.mipago.config import ANNOTATION_KEY
 from cs.pfg.mipago.config import MIPAGO_HTML_KEY
+from cs.pfg.mipago.config import MIPAGO_PAYMENT_CODE
 from cs.pfg.mipago.config import PAYMENT_STATUS_SENT_TO_MIPAGO
 from cs.pfg.mipago.config import PROJECTNAME
 from cs.pfg.mipago.interfaces import IMiPagoAdapter
@@ -246,7 +247,8 @@ class MiPagoAdapter(FormActionAdapter):
             else:
                 request = self.REQUEST
 
-            self.register_payment(code, reference_number, amount)
+            normalized_fields = self.normalize_fields(REQUEST, fields)
+            self.register_payment(code, reference_number, amount, normalized_fields)
 
             request.SESSION[MIPAGO_HTML_KEY] = html
             request.SESSION[MIPAGO_PAYMENT_CODE] = code
@@ -292,7 +294,7 @@ class MiPagoAdapter(FormActionAdapter):
         return self.getMipago_reference_number_start()
 
 
-    def register_payment(self, payment_code, reference_number, amount):
+    def register_payment(self, payment_code, reference_number, amount, fields):
         adapted = IAnnotations(self)
         payments = adapted.get(ANNOTATION_KEY, {})
         payments[payment_code] = {
@@ -300,8 +302,20 @@ class MiPagoAdapter(FormActionAdapter):
             'amount': amount,
             'datetime': datetime.datetime.utcnow().isoformat(),
             'status': PAYMENT_STATUS_SENT_TO_MIPAGO,
+            'fields': fields
         }
 
         adapted[ANNOTATION_KEY] = payments
+
+    def normalize_fields(self, REQUEST, fields):
+        result = []
+        for i, field in enumerate(fields):
+            result.append({
+                'order': i,
+                'id': field.id,
+                'title': field.Title(),
+                'value': REQUEST.get(field.id, ''),
+            })
+        return result
 
 atapi.registerType(MiPagoAdapter, PROJECTNAME)
