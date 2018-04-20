@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b2 (unreleased)
+1.0b2 (2018-04-20)
 ------------------
 
 - Export data in XLS format.
