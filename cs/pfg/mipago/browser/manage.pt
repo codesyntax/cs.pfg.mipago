@@ -15,6 +15,11 @@
       <h1 class="documentFirstHeading" i18n:translate="">
         Manage payments
       </h1>
+
+      <form tal:attributes="action string:${here/absolute_url}/export" method="post">
+        <button i18n:translate="">Download data</button>
+      </form>
+
       <form tal:attributes="action string:${here/absolute_url}/delete_payments"
           method="post"
           tal:condition="view/get_payments">

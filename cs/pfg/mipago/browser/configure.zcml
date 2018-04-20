@@ -50,5 +50,14 @@
     layer="..interfaces.ICS_PFG_MIPAGOLayer"
   />
 
+  <browser:page
+    for="..interfaces.IMiPagoAdapter"
+    name="export"
+    class=".export.ExportData"
+    permission="cmf.ModifyPortalContent"
+    layer="..interfaces.ICS_PFG_MIPAGOLayer"
+  />
+
+
 
 </configure>

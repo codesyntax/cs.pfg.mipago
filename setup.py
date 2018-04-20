@@ -43,6 +43,7 @@ setup(name='cs.pfg.mipago',
             'pytz',
             'Plone',
             'zope.configuration',
+            'tablib',
       ],
       extras_require={'test': [
           'plone.app.testing [robot]',
