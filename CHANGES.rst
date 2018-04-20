@@ -4,7 +4,8 @@ Changelog
 1.0b4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Translate action title.
+  [erral]
 
 
 1.0b3 (2018-04-20)
