@@ -146,7 +146,7 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             description='',
             label=_('Enter the number of the first reference number'),
             default=_('All payments will have consecutive numbers, enter here the value of the first.'),
-            size=3)
+            size=10)
     ),
     atapi.BooleanField(
         'mipago_use_debug_environment',
@@ -237,7 +237,7 @@ class MiPagoAdapter(FormActionAdapter):
         reference_number = self.get_reference_number()
         payment_period = self.getMipago_payment_limit_date()
         language = self.getMipago_screen_language()
-        return_url = aq_parent(self).absolute_url() + '/payment_end'
+        return_url = self.absolute_url() + '/payment_end'
         payment_modes = self.getMipago_payment_modes()
         period_date = datetime.datetime.now() + datetime.timedelta(days=payment_period)
         try:
@@ -313,7 +313,7 @@ class MiPagoAdapter(FormActionAdapter):
             result.append({
                 'order': i,
                 'id': field.id,
-                'title': field.Title(),
+                'title': field.title,
                 'value': REQUEST.get(field.id, ''),
             })
         return result
