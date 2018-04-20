@@ -19,6 +19,7 @@
     for="..interfaces.IMiPagoAdapter"
     name="payment_end"
     class=".payment.PaymentEnd"
+    template="payment.pt"
     permission="zope2.View"
     layer="..interfaces.ICS_PFG_MIPAGOLayer"
   />

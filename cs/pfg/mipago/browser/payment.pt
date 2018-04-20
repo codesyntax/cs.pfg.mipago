@@ -1,1 +1,56 @@
-OK!
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cs.pfg.mipago">
+
+  <head><title></title></head>
+
+  <body>
+    <metal:fill fill-slot="content-title">
+      <h1 class="documentFirstHeading" tal:content="view/form_title">
+        Title
+      </h1>
+    </metal:fill>
+
+    <metal:fill fill-slot="content-description">
+
+    </metal:fill>
+
+    <metal:fill fill-slot="content-core">
+
+      <p tal:replace="structure view/get_thanks_prologue | nothing" />
+
+      <dl tal:define="payment view/get_payment_data" tal:condition="payment">
+
+        <tal:fields repeat="field payment/fields">
+
+          <dt tal:content="field/title">Name</dt>
+          <dd tal:content="field/value">John Doe</dd>
+
+        </tal:fields>
+
+        <dt i18n:translate="">
+          Payment code number
+        </dt>
+
+        <dd tal:content="payment/reference_number"></dd>
+
+        <dt i18n:translate="">
+          Date and time
+        </dt>
+
+        <dd tal:content="view/datetime"></dd>
+
+
+      </dl>
+
+      <p tal:replace="structure view/get_thanks_epilogue | nothing" />
+
+    </metal:fill>
+
+  </body>
+</html>
