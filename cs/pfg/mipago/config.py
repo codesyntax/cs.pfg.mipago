@@ -5,6 +5,7 @@
 PROJECTNAME = 'cs.pfg.mipago'
 
 MIPAGO_HTML_KEY = 'mipago_show_html'
+MIPAGO_PAYMENT_CODE = 'mipago_payment_code'
 
 ANNOTATION_KEY = 'cs.pfg.mipago.payments'
 
