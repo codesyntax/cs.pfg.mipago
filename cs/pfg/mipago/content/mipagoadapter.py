@@ -92,7 +92,7 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
         searchable=False,
         widget=atapi.IntegerWidget(
             description='',
-            label=_('Enter the number of the days that the user has to pay counting from today'),
+            label=_('Enter the number of the days that the user has to pay counting from the day he fills the form'),
             size=3)
     ),
     atapi.StringField(
