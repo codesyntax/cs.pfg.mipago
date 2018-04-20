@@ -15,60 +15,65 @@
       <h1 class="documentFirstHeading" i18n:translate="">
         Manage payments
       </h1>
+      <form tal:attributes="action string:${here/absolute_url}/delete_payments"
+          method="post"
+          tal:condition="view/get_payments">
+        <table class="listing">
+          <thead>
+            <tr>
+              <th i18n:translate="">
+                Delete
+              </th>
+              <th i18n:translate="">
+                Reference number
+              </th>
+              <th i18n:translate="">
+                Payment code
+              </th>
+              <th i18n:translate="">
+                Amount
+              </th>
+              <th i18n:translate="">
+                Date
+              </th>
+              <th i18n:translate="">
+                Status
+              </th>
+              <th i18n:translate="">
+                Form data
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr tal:repeat="payment view/get_payments">
+              <td>
+                <input type="checkbox" name="pcodes:list" tal:attributes="value payment/payment_code|nothing" />
+              </td>
+              <td tal:content="payment/reference_number|nothing">
+                12
+              </td>
+              <td tal:content="payment/payment_code|nothing">
+                12
+              </td>
+              <td tal:content="payment/amount|nothing">
+                12
+              </td>
+              <td tal:content="payment/datetime|nothing">
+                12
+              </td>
+              <td tal:content="payment/status|nothing">
+                12
+              </td>
+              <td tal:content="payment/fields|nothing">
+                12
+              </td>
 
-      <table class="listing" tal:condition="view/get_payments">
-        <thead>
-          <tr>
-            <th i18n:translate="">
-              Reference number
-            </th>
-            <th i18n:translate="">
-              Payment code
-            </th>
-            <th i18n:translate="">
-              Amount
-            </th>
-            <th i18n:translate="">
-              Date
-            </th>
-            <th i18n:translate="">
-              Status
-            </th>
-            <th i18n:translate="">
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr tal:repeat="payment view/get_payments">
-            <td tal:content="payment/reference_number|nothing">
-              12
-            </td>
-            <td tal:content="payment/payment_code|nothing">
-              12
-            </td>
+            </tr>
+          </tbody>
+        </table>
 
-            <td tal:content="payment/amount|nothing">
-              12
-            </td>
-            <td tal:content="payment/datetime|nothing">
-              12
-            </td>
-            <td tal:content="payment/status|nothing">
-              12
-            </td>
-            <td>
-              <form tal:attributes="action string:${here/absolute_url}/delete_payments">
-                <input type="hidden" name="pcode" tal:attributes="value payment/payment_code|nothing">
-                <button type="submit" class="destructive" for="delete_payments" i18n:translate="">Delete payment</button>
-              </form>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <button type="submit" class="destructive" for="delete_payments" i18n:translate="">Delete selected payments</button>
 
-      <form tal:attributes="action string:${here/absolute_url}/delete_payments" tal:condition="view/get_payments">
-        <button type="submit" class="destructive" for="delete_payments" i18n:translate="">Delete all payments</button>
       </form>
 
 

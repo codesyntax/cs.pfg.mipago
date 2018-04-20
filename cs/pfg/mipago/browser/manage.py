@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from copy import deepcopy
 from cs.pfg.mipago import mipagoMessageFactory as _
 from cs.pfg.mipago.config import ANNOTATION_KEY
 from cs.pfg.mipago.config import PAYMENT_STATUS_PAYED
@@ -8,9 +9,9 @@ from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from zope.annotation.interfaces import IAnnotations
 from zope.i18n import translate
-from copy import deepcopy
 
 import datetime
+import json
 import pytz
 
 
@@ -26,6 +27,7 @@ class ManagePayments(BrowserView):
             new_data['status'] = self.translate_status(data.get('status', ''))
             new_data['datetime'] = self.localize_datetime(data.get('datetime', ''))
             new_data['amount'] = self.translate_amount(data.get('amount', ''))
+            new_data['fields'] = self.translate_fields(data.get('fields', []))
             results.append(new_data)
 
         results.sort(key=lambda x: x.get('reference_number'))
@@ -56,6 +58,10 @@ class ManagePayments(BrowserView):
         except:
             return ''
 
+    def translate_fields(self, value):
+        data = json.dumps(value, indent=True)
+        return data
+
 
 class DeletePayments(BrowserView):
 
@@ -64,13 +70,14 @@ class DeletePayments(BrowserView):
         adapted = IAnnotations(self.context)
         payments = adapted.get(ANNOTATION_KEY, {})
 
-        if self.request.get('pcode') is not None:
-            pcode = self.request.get('pcode')
-            del payments[pcode]
+        if self.request.get('pcodes', []) is not None:
+            pcodes = self.request.get('pcodes')
+            for pcode in pcodes:
+                if pcode in payments:
+                    del payments[pcode]
             adapted[ANNOTATION_KEY] = payments
-            messages.add(_(u'Payment was deleted'), type=u"info")
+            messages.add(_(u'Payments were deleted'), type=u"info")
         else:
-            adapted[ANNOTATION_KEY] = {}
-            messages.add(_(u'All payments have been deleted'), type=u"info")
+            messages.add(_(u'Nothing was deleted'), type=u"error")
 
         return self.request.response.redirect(self.context.absolute_url() + '/manage_payments')
