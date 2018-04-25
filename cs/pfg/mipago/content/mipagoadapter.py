@@ -112,15 +112,16 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             label=_('Enter the suffix of this payment'),
             size=3)
     ),
-    atapi.IntegerField(
+    atapi.DateTimeField(
         'mipago_payment_limit_date',
         required=True,
         storage=atapi.AnnotationStorage(),
         searchable=False,
-        widget=atapi.IntegerWidget(
+        widget=atapi.CalendarWidget(
             description='',
-            label=_('Enter the number of the days that the user has to pay counting from the day he fills the form'),
-            size=3)
+            show_hm=False,
+            label=_('Enter the limit date to do the payment'),
+        )
     ),
     atapi.StringField(
         'mipago_screen_language',
@@ -544,11 +545,11 @@ class MiPagoAdapter(FormActionAdapter):
         format = self.getMipago_format()
         suffix = self.getMipago_suffix()
         reference_number = self.get_reference_number()
-        payment_period = self.getMipago_payment_limit_date()
         language = self.getMipago_screen_language()
         return_url = self.absolute_url() + '/payment_end'
         payment_modes = self.getMipago_payment_modes()
-        period_date = datetime.datetime.now() + datetime.timedelta(days=payment_period)
+        payment_period = self.getMipago_payment_limit_date()
+        period_date = self.getMipago_payment_limit_date().asdatetime().date()
         extra = {}
 
         # Extra messages
