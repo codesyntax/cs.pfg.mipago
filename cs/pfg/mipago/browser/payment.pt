@@ -17,7 +17,7 @@
     </metal:fill>
 
     <metal:fill fill-slot="content-description">
-
+      <tal:dummy define="dummy view/send_form"></tal:dummy>
     </metal:fill>
 
     <metal:fill fill-slot="content-core">
@@ -50,6 +50,8 @@
 
       <p tal:replace="structure view/get_thanks_epilogue | nothing" />
 
+
+      <tal:dummy define="dummy view/clear_session"></tal:dummy>
     </metal:fill>
 
   </body>
