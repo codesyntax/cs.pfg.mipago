@@ -495,8 +495,111 @@ class MiPagoAdapter(FormActionAdapter):
         return_url = self.absolute_url() + '/payment_end'
         payment_modes = self.getMipago_payment_modes()
         period_date = datetime.datetime.now() + datetime.timedelta(days=payment_period)
+        extra = {}
+
+        # Extra messages
+        if self.getMessage_2_spanish():
+            if 'message2' not in extra:
+                extra['message2'] = {}
+            extra['message2'].update(
+                {'es': self.getMessage_2_spanish()}
+            )
+        if self.getMessage_2_basque():
+            if 'message2' not in extra:
+                extra['message2'] = {}
+
+            extra['message2'].update(
+                {'eu': self.getMessage_2_spanish()}
+            )
+
+        if self.getMessage_3_spanish():
+            if 'message3' not in extra:
+                extra['message3'] = {}
+            extra['message3'].update(
+                {'es': self.getMessage_3_spanish()}
+            )
+        if self.getMessage_3_basque():
+            if 'message3' not in extra:
+                extra['message3'] = {}
+
+            extra['message3'].update(
+                {'eu': self.getMessage_3_spanish()}
+            )
+
+        if self.getMessage_4_spanish():
+            if 'message4' not in extra:
+                extra['message4'] = {}
+            extra['message4'].update(
+                {'es': self.getMessage_4_spanish()}
+            )
+        if self.getMessage_4_basque():
+            if 'message4' not in extra:
+                extra['message4'] = {}
+
+            extra['message4'].update(
+                {'eu': self.getMessage_4_spanish()}
+            )
+
+        if self.getMessage_top_description_spanish():
+            if 'message_payment_title' not in extra:
+                extra['message_payment_title'] = {}
+
+            extra['message_payment_title'].update(
+                {'es': self.getMessage_top_description_spanish()}
+            )
+
+        if self.getMessage_top_description_basque():
+            if 'message_payment_title' not in extra:
+                extra['message_payment_title'] = {}
+
+            extra['message_payment_title'].update(
+                {'eu': self.getMessage_top_description_basque()}
+            )
+
+
+        if self.getCitizen_name():
+            field_name = self.getCitizen_name()
+            extra['citizen_name'] = REQUEST.get(field_name)
+        if self.getCitizen_surname1():
+            field_name = self.getCitizen_surname1()
+            extra['citizen_surname_1'] = REQUEST.get(field_name)
+        if self.getCitizen_surname2():
+            field_name = self.getCitizen_surname2()
+            extra['citizen_surname_2'] = REQUEST.get(field_name)
+        if self.getCitizen_nif():
+            field_name = self.getCitizen_nif()
+            extra['citizen_nif'] = REQUEST.get(field_name)
+        if self.getCitizen_address():
+            field_name = self.getCitizen_address()
+            extra['citizen_address'] = REQUEST.get(field_name)
+        if self.getCitizen_city():
+            field_name = self.getCitizen_city()
+            extra['citizen_city'] = REQUEST.get(field_name)
+        if self.getCitizen_postal_code():
+            field_name = self.getCitizen_postal_code()
+            extra['citizen_postal_code'] = REQUEST.get(field_name)
+        if self.getCitizen_territory():
+            field_name = self.getCitizen_territory()
+            extra['citizen_territory'] = REQUEST.get(field_name)
+        if self.getCitizen_country():
+            field_name = self.getCitizen_country()
+            extra['citizen_country'] = REQUEST.get(field_name)
+        if self.getCitizen_phone():
+            field_name = self.getCitizen_phone()
+            extra['citizen_phone'] = REQUEST.get(field_name)
+        if self.getCitizen_email():
+            field_name = self.getCitizen_email()
+            extra['citizen_email'] = REQUEST.get(field_name)
+
+
+        if self.getMipago_payment_description_es():
+            extra['mipago_payment_description_es'] = self.getMipago_payment_description_es()
+        if self.getMipago_payment_description_eu():
+            extra['mipago_payment_description_eu'] = self.getMipago_payment_description_eu()
+
+
         try:
-            html, code = make_payment_request(cpr, sender, format, suffix, reference_number, period_date, amount, language, return_url, payment_modes, self.getMipago_use_debug_environment())
+            html, code = make_payment_request(cpr, sender, format, suffix, reference_number, period_date, amount, language, return_url, payment_modes, self.getMipago_use_debug_environment(), extra)
             if REQUEST is not None:
                 request = REQUEST
             else:
