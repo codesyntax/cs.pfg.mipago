@@ -4,7 +4,8 @@ Changelog
 1.0b5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add email sending ability.
+  [erral]
 
 
 1.0b4 (2018-04-25)
