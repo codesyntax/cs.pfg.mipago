@@ -17,13 +17,20 @@ from Products.Archetypes.utils import shasattr
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 from Products.CMFCore.permissions import ModifyPortalContent
+from Products.PloneFormGen.config import EDIT_ADDRESSING_PERMISSION
+from Products.PloneFormGen.config import EDIT_ADVANCED_PERMISSION
 from Products.PloneFormGen.config import EDIT_PYTHON_PERMISSION
+from Products.PloneFormGen.config import EDIT_TALES_PERMISSION
+from Products.PloneFormGen.config import MIME_LIST
 from Products.PloneFormGen.config import FORM_ERROR_MARKER
 from Products.PloneFormGen.content.actionAdapter import FormActionAdapter
 from Products.PloneFormGen.content.actionAdapter import FormAdapterSchema
+from Products.PloneFormGen.content.formMailerAdapter import formMailerAdapterSchema
+from Products.PloneFormGen.content.formMailerAdapter import FormMailerAdapter
 from Products.PythonField import PythonField
 from Products.PythonScripts.PythonScript import PythonScript
 from Products.TALESField import TALESString
+from Products.TemplateFields import ZPTField
 from pymipago import make_payment_request
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import implements
@@ -57,7 +64,7 @@ assert False, "Please complete your script"
 """
 
 
-MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
+MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     # -*- Your Archetypes field definitions here ... -*-
     atapi.StringField(
@@ -488,6 +495,45 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
 
 ))
 
+# Hide unneeded fields coming from formMailerAdapter
+MiPagoAdapterSchema['additional_headers'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['gpg_keyid'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['recipient_name'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['replyto_field'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['xinfo_headers'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+
+
+# Change some labels and descriptions
+MiPagoAdapterSchema['to_field'].widget.label = _(u'Extract Recipient From')
+MiPagoAdapterSchema['to_field'].widget.description = _(u"""
+                Choose a form field from which you wish to extract
+                input for the To header. If you choose anything other
+                than "None", the user will not receive any email.
+                Be very cautious about allowing unguarded user
+                input for this purpose.
+                """)
+
+# Change schematas
+MiPagoAdapterSchema.changeSchemataForField('to_field', 'email')
+MiPagoAdapterSchema.changeSchemataForField('recipient_email', 'email')
+MiPagoAdapterSchema.changeSchemataForField('cc_recipients', 'email')
+MiPagoAdapterSchema.changeSchemataForField('bcc_recipients', 'email')
+MiPagoAdapterSchema.changeSchemataForField('msg_subject', 'email')
+
+MiPagoAdapterSchema.changeSchemataForField('body_pre', 'email')
+MiPagoAdapterSchema.changeSchemataForField('body_post', 'email')
+MiPagoAdapterSchema.changeSchemataForField('body_footer', 'email')
+MiPagoAdapterSchema.changeSchemataForField('showAll', 'email')
+MiPagoAdapterSchema.changeSchemataForField('showFields', 'email')
+MiPagoAdapterSchema.changeSchemataForField('includeEmpties', 'email')
+MiPagoAdapterSchema.changeSchemataForField('body_pt', 'email')
+MiPagoAdapterSchema.changeSchemataForField('body_type', 'email')
+
+MiPagoAdapterSchema.changeSchemataForField('body_pt', 'email')
+
+MiPagoAdapterSchema.moveField('to_field', before='recipient_email')
+MiPagoAdapterSchema.moveField('execCondition', pos='bottom')
+
 schemata.finalizeATCTSchema(MiPagoAdapterSchema, moveDiscussion=False)
 
 
@@ -495,7 +541,7 @@ class InvalidReferenceNumber(Exception):
     pass
 
 
-class MiPagoAdapter(FormActionAdapter):
+class MiPagoAdapter(FormMailerAdapter):
     """Adapter for payments with MiPago"""
     implements(IMiPagoAdapter)
 
@@ -822,5 +868,6 @@ class MiPagoAdapter(FormActionAdapter):
         for field in form:
             result[field] = form[field]
         return result
+
 
 atapi.registerType(MiPagoAdapter, PROJECTNAME)
