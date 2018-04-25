@@ -312,7 +312,7 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
         required=0,
         vocabulary='fieldsDisplayList',
         widget=atapi.SelectionWidget(
-            label=_(u'Citizen cuntry field'),
+            label=_(u'Citizen country field'),
             description=_(u"Select which field of the form has the citizen's country"),
             ),
         ),
