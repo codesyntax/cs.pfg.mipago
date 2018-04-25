@@ -127,6 +127,29 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             format='checkbox',
             size=40)
     ),
+
+    atapi.StringField(
+        'mipago_payment_description_es',
+        required=True,
+        storage=atapi.AnnotationStorage(),
+        searchable=False,
+        widget=atapi.StringWidget(
+            description='',
+            label=_('Concept description in spanish '),
+            )
+    ),
+
+    atapi.StringField(
+        'mipago_payment_description_eu',
+        required=True,
+        storage=atapi.AnnotationStorage(),
+        searchable=False,
+        widget=atapi.StringWidget(
+            description='',
+            label=_('Concept description in basque '),
+            )
+    ),
+
     atapi.FloatField(
         'mipago_payment_amount',
         required=True,
@@ -157,6 +180,238 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             label=_('Check if the payments should be made on the TEST platform'),
         )
     ),
+
+    atapi.StringField('citizen_surname1',
+        schemata='citizendata',
+        searchable=0,
+        required=0,
+        vocabulary='fieldsDisplayList',
+        widget=atapi.SelectionWidget(
+            label=_(u'Citizen surname1 field'),
+            description=_(u"Select which field of the form has the citizen's 1st surname"),
+            ),
+        ),
+
+    atapi.StringField('citizen_surname2',
+        schemata='citizendata',
+        searchable=0,
+        required=0,
+        vocabulary='fieldsDisplayList',
+        widget=atapi.SelectionWidget(
+            label=_(u'Citizen surname2 field'),
+            description=_(u"Select which field of the form has the citizen's 2nd surname"),
+            ),
+        ),
+
+    atapi.StringField('citizen_name',
+        schemata='citizendata',
+        searchable=0,
+        required=0,
+        vocabulary='fieldsDisplayList',
+        widget=atapi.SelectionWidget(
+            label=_(u'Citizen name field'),
+            description=_(u"Select which field of the form has the citizen's name"),
+            ),
+        ),
+
+    atapi.StringField('citizen_nif',
+        schemata='citizendata',
+        searchable=0,
+        required=0,
+        vocabulary='fieldsDisplayList',
+        widget=atapi.SelectionWidget(
+            label=_(u'Citizen nif field'),
+            description=_(u"Select which field of the form has the citizen's nif"),
+            ),
+        ),
+
+    atapi.StringField('citizen_address',
+        schemata='citizendata',
+        searchable=0,
+        required=0,
+        vocabulary='fieldsDisplayList',
+        widget=atapi.SelectionWidget(
+            label=_(u'Citizen address field'),
+            description=_(u"Select which field of the form has the citizen's address"),
+            ),
+        ),
+
+    atapi.StringField('citizen_city',
+        schemata='citizendata',
+        searchable=0,
+        required=0,
+        vocabulary='fieldsDisplayList',
+        widget=atapi.SelectionWidget(
+            label=_(u'Citizen city field'),
+            description=_(u"Select which field of the form has the citizen's city"),
+            ),
+        ),
+
+
+    atapi.StringField('citizen_postal_code',
+        schemata='citizendata',
+        searchable=0,
+        required=0,
+        vocabulary='fieldsDisplayList',
+        widget=atapi.SelectionWidget(
+            label=_(u'Citizen postal code field'),
+            description=_(u"Select which field of the form has the citizen's postal code"),
+            ),
+        ),
+
+    atapi.StringField('citizen_territory',
+        schemata='citizendata',
+        searchable=0,
+        required=0,
+        vocabulary='fieldsDisplayList',
+        widget=atapi.SelectionWidget(
+            label=_(u'Citizen territory field'),
+            description=_(u"Select which field of the form has the citizen's territory"),
+            ),
+        ),
+
+    atapi.StringField('citizen_country',
+        schemata='citizendata',
+        searchable=0,
+        required=0,
+        vocabulary='fieldsDisplayList',
+        widget=atapi.SelectionWidget(
+            label=_(u'Citizen cuntry field'),
+            description=_(u"Select which field of the form has the citizen's country"),
+            ),
+        ),
+
+    atapi.StringField('citizen_phone',
+        schemata='citizendata',
+        searchable=0,
+        required=0,
+        vocabulary='fieldsDisplayList',
+        widget=atapi.SelectionWidget(
+            label=_(u'Citizen phone field'),
+            description=_(u"Select which field of the form has the citizen's phone"),
+            ),
+        ),
+
+    atapi.StringField('citizen_email',
+        schemata='citizendata',
+        searchable=0,
+        required=0,
+        vocabulary='fieldsDisplayList',
+        widget=atapi.SelectionWidget(
+            label=_(u'Citizen email field'),
+            description=_(u"Select which field of the form has the citizen's email"),
+            ),
+        ),
+
+    atapi.TextField('message_top_description_spanish',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        allowable_content_types='text/plain',
+        default_output_type='text/plain',
+        default_content_type='text/plain',
+        widget=atapi.TextAreaWidget(
+            label=_(u'Override the value of the payment title in spanish'),
+            description=_(u"Write here the spanish text that will override the default name of the payment coming from the payment service configuration"),
+            ),
+        ),
+
+    atapi.TextField('message_top_description_basque',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        allowable_content_types='text/plain',
+        default_output_type='text/plain',
+        default_content_type='text/plain',
+        widget=atapi.TextAreaWidget(
+            label=_(u'Override the value of the payment title in basque'),
+            description=_(u"Write here the basque text that will override the default name of the payment coming from the payment service configuration"),
+            ),
+        ),
+
+
+    atapi.TextField('message_4_spanish',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        allowable_content_types='text/plain',
+        default_output_type='text/plain',
+        default_content_type='text/plain',
+        widget=atapi.TextAreaWidget(
+            label=_(u'Override the value of message 4 in spanish'),
+            description=_(u"Write here the spanish text that will override the value shown on the header of the PDF file"),
+            ),
+        ),
+
+    atapi.TextField('message_4_basque',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        allowable_content_types='text/plain',
+        default_output_type='text/plain',
+        default_content_type='text/plain',
+        widget=atapi.TextAreaWidget(
+            label=_(u'Override the value of message 4 in basque'),
+            description=_(u"Write here the basque text that will override the value shown on the header of the PDF file"),
+            ),
+        ),
+
+
+    atapi.TextField('message_2_spanish',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        allowable_content_types='text/plain',
+        default_output_type='text/plain',
+        default_content_type='text/plain',
+        default='''La tasa objeto de esta liquidación está sujeta a la Ley 13/1998, de 29 de mayo, de tasas y precios públicos de la Adminsitración de la Comunidad Autónoma del Páis Vasco.''',
+        widget=atapi.TextAreaWidget(
+            label=_(u'Override the value of message 2 in spanish'),
+            description=_(u"Write here the spanish text that will override the value shown in the PDF file"),
+            ),
+        ),
+
+    atapi.TextField('message_2_basque',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        allowable_content_types='text/plain',
+        default_output_type='text/plain',
+        default_content_type='text/plain',
+        default='''13/1998 Legeak, maiatzaren 29koa, Euskal Autonomia Erkidegoko Administrazioaren tasa eta prezio publikoei buruzkoa, kitapen honen gaia den tasa arautzen du.''',
+        widget=atapi.TextAreaWidget(
+            label=_(u'Override the value of message 2 in basque'),
+            description=_(u"Write here the basque text that will override the value shown in the PDF file"),
+            ),
+        ),
+
+    atapi.TextField('message_3_spanish',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        allowable_content_types='text/plain',
+        default_output_type='text/plain',
+        default_content_type='text/plain',
+        default='''Contra esta liquidación podrá interponerse, en el plazo de 15 días desde su notificación, un recurso de reposición ante el órgano que dictó la resolución, o, en su defecto o contra su resolución, reclamación económico-administrativa ante el "Tribunal Económico-Administrativo de Esukadi", en el mismo plazo.''',
+        widget=atapi.TextAreaWidget(
+            label=_(u'Override the value of message 3 in spanish'),
+            description=_(u"Write here the spanish text that will override the value shown in the PDF file"),
+            ),
+        ),
+
+    atapi.TextField('message_3_basque',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        allowable_content_types='text/plain',
+        default_output_type='text/plain',
+        default_content_type='text/plain',
+        default='''Kitapenaren kontra berraztertzeko errekurtsoa aurkeztu ahal izango zaio kitapena egin duen organoari, edo, bestela, ebazpenaren kontra Administrazioarekiko diru erreklamazioa jarri ahal izango da Euskadiko Ekonomia Ardularitzako Epaitegian, jakinarazpena jaso eta 15 eguneko epean.''',
+        widget=atapi.TextAreaWidget(
+            label=_(u'Override the value of message 3 in basque'),
+            description=_(u"Write here the basque text that will override the value shown in the PDF file"),
+            ),
+        ),
 
     TALESString('mipago_payment_amountOverride',
         schemata='overrides',
@@ -317,5 +572,17 @@ class MiPagoAdapter(FormActionAdapter):
                 'value': REQUEST.get(field.id, ''),
             })
         return result
+
+    def fieldsDisplayList(self):
+        """ returns display list of fields with simple values """
+
+        return self.fgFieldsDisplayList(
+            withNone=True,
+            noneValue='#NONE#',
+            objTypes=(
+                'FormSelectionField',
+                'FormStringField',
+                )
+            )
 
 atapi.registerType(MiPagoAdapter, PROJECTNAME)
