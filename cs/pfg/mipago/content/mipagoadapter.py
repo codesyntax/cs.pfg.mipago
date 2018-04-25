@@ -501,6 +501,8 @@ MiPagoAdapterSchema['gpg_keyid'].widget.visible = {'view': 'invisible', 'edit': 
 MiPagoAdapterSchema['recipient_name'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['replyto_field'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['xinfo_headers'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['cc_recipients'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['bcc_recipients'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 
 
 # Change some labels and descriptions
@@ -516,8 +518,6 @@ MiPagoAdapterSchema['to_field'].widget.description = _(u"""
 # Change schematas
 MiPagoAdapterSchema.changeSchemataForField('to_field', 'email')
 MiPagoAdapterSchema.changeSchemataForField('recipient_email', 'email')
-MiPagoAdapterSchema.changeSchemataForField('cc_recipients', 'email')
-MiPagoAdapterSchema.changeSchemataForField('bcc_recipients', 'email')
 MiPagoAdapterSchema.changeSchemataForField('msg_subject', 'email')
 
 MiPagoAdapterSchema.changeSchemataForField('body_pre', 'email')
@@ -529,7 +529,6 @@ MiPagoAdapterSchema.changeSchemataForField('includeEmpties', 'email')
 MiPagoAdapterSchema.changeSchemataForField('body_pt', 'email')
 MiPagoAdapterSchema.changeSchemataForField('body_type', 'email')
 
-MiPagoAdapterSchema.changeSchemataForField('body_pt', 'email')
 
 MiPagoAdapterSchema.moveField('to_field', before='recipient_email')
 MiPagoAdapterSchema.moveField('execCondition', pos='bottom')
