@@ -77,10 +77,10 @@ class PaymentEnd(BrowserView):
             # Mail to form owner
             self.context.send_form(fields, self.request, to_addr=self.context.getRecipient_email())
 
-            to_field = self.context.to_field
-
-            # Mail to form filler
-            self.context.send_form(fields, self.request, to_addr=form_data[to_field])
+            to_field = self.context.getTo_field()
+            if to_field != '#NONE#':
+                # Mail to form filler
+                self.context.send_form(fields, self.request, to_addr=form_data[to_field])
 
     def clear_session(self):
         for key in self.request.SESSION.keys():
