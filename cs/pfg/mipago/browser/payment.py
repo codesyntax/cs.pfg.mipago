@@ -60,3 +60,28 @@ class PaymentEnd(BrowserView):
         now = DateTime()
         ploneview = getMultiAdapter((self.context, self.request), name='plone')
         return ploneview.toLocalizedTime(now, long_format=True)
+
+
+    def send_form(self):
+        data = self.get_payment_data()
+        if data is not None:
+            field_data = data.get('fields', [])
+            fields = []
+            form_data = {}
+            for field in field_data:
+                form_data[field['id']] = field['value']
+                fields.append(self.form.get(field['id']))
+
+            self.request.form = form_data
+
+            # Mail to form owner
+            self.context.send_form(fields, self.request, to_addr=self.context.getRecipient_email())
+
+            to_field = self.context.getTo_field()
+            if to_field != '#NONE#':
+                # Mail to form filler
+                self.context.send_form(fields, self.request, to_addr=form_data[to_field])
+
+    def clear_session(self):
+        for key in self.request.SESSION.keys():
+            del self.request.SESSION[key]
