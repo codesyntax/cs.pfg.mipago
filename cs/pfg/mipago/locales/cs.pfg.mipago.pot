@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-04-20 11:44+0000\n"
+"POT-Creation-Date: 2018-04-25 10:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,41 +14,31 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./content/mipagoadapter.py:172
-msgid "
-                A TALES expression that will be evaluated to override any value
-                otherwise entered for amount value.
-                Leave empty if unneeded. Your expression should evaluate as a string.
-                PLEASE NOTE: errors in the evaluation of this expression will cause
-                an error on form display.
-            "
-msgstr ""
-
-#: ./content/mipagoadapter.py:55
+#: ./content/mipagoadapter.py:81
 msgid "502: Notebook 60, modality 1, short format"
 msgstr ""
 
-#: ./content/mipagoadapter.py:58
+#: ./content/mipagoadapter.py:84
 msgid "507: Notebook 57, short format"
 msgstr ""
 
-#: ./content/mipagoadapter.py:56
+#: ./content/mipagoadapter.py:82
 msgid "521: Notebook 60, modality 2, short format"
 msgstr ""
 
-#: ./content/mipagoadapter.py:57
+#: ./content/mipagoadapter.py:83
 msgid "522: Notebook 60, modality 2, long format"
 msgstr ""
 
-#: ./content/mipagoadapter.py:40
+#: ./content/mipagoadapter.py:66
 msgid "9050299: Notebook 60, modality 1"
 msgstr ""
 
-#: ./content/mipagoadapter.py:42
+#: ./content/mipagoadapter.py:68
 msgid "9050794: Notebook 57"
 msgstr ""
 
-#: ./content/mipagoadapter.py:41
+#: ./content/mipagoadapter.py:67
 msgid "9052180: Notebook 60, modality 2"
 msgstr ""
 
@@ -56,7 +46,7 @@ msgstr ""
 msgid "Adapter for payments with MiPago"
 msgstr ""
 
-#: ./content/mipagoadapter.py:148
+#: ./content/mipagoadapter.py:198
 msgid "All payments will have consecutive numbers, enter here the value of the first."
 msgstr ""
 
@@ -64,12 +54,68 @@ msgstr ""
 msgid "Amount"
 msgstr ""
 
-#: ./content/mipagoadapter.py:171
-msgid "Amount Expression"
+#: ./content/mipagoadapter.py:482
+msgid "Amount calculation script"
 msgstr ""
 
-#: ./content/mipagoadapter.py:157
+#: ./content/mipagoadapter.py:207
 msgid "Check if the payments should be made on the TEST platform"
+msgstr ""
+
+#: ./content/mipagoadapter.py:468
+msgid "Check if you need to calculate the amount using a python script"
+msgstr ""
+
+#: ./content/mipagoadapter.py:266
+msgid "Citizen address field"
+msgstr ""
+
+#: ./content/mipagoadapter.py:278
+msgid "Citizen city field"
+msgstr ""
+
+#: ./content/mipagoadapter.py:315
+msgid "Citizen country field"
+msgstr ""
+
+#: ./content/mipagoadapter.py:339
+msgid "Citizen email field"
+msgstr ""
+
+#: ./content/mipagoadapter.py:242
+msgid "Citizen name field"
+msgstr ""
+
+#: ./content/mipagoadapter.py:254
+msgid "Citizen nif field"
+msgstr ""
+
+#: ./content/mipagoadapter.py:327
+msgid "Citizen phone field"
+msgstr ""
+
+#: ./content/mipagoadapter.py:291
+msgid "Citizen postal code field"
+msgstr ""
+
+#: ./content/mipagoadapter.py:218
+msgid "Citizen surname1 field"
+msgstr ""
+
+#: ./content/mipagoadapter.py:230
+msgid "Citizen surname2 field"
+msgstr ""
+
+#: ./content/mipagoadapter.py:303
+msgid "Citizen territory field"
+msgstr ""
+
+#: ./content/mipagoadapter.py:176
+msgid "Concept description in basque "
+msgstr ""
+
+#: ./content/mipagoadapter.py:165
+msgid "Concept description in spanish "
 msgstr ""
 
 #: ./browser/manage.pt:41
@@ -92,31 +138,31 @@ msgstr ""
 msgid "Download data"
 msgstr ""
 
-#: ./content/mipagoadapter.py:49
+#: ./content/mipagoadapter.py:75
 msgid "Enter the CPR code of this payment"
 msgstr ""
 
-#: ./content/mipagoadapter.py:137
+#: ./content/mipagoadapter.py:187
 msgid "Enter the amount to be paid"
 msgstr ""
 
-#: ./content/mipagoadapter.py:65
+#: ./content/mipagoadapter.py:91
 msgid "Enter the format code of this payment"
 msgstr ""
 
-#: ./content/mipagoadapter.py:96
-msgid "Enter the number of the days that the user has to pay counting from the day he fills the form"
+#: ./content/mipagoadapter.py:123
+msgid "Enter the limit date to do the payment"
 msgstr ""
 
-#: ./content/mipagoadapter.py:147
+#: ./content/mipagoadapter.py:197
 msgid "Enter the number of the first reference number"
 msgstr ""
 
-#: ./content/mipagoadapter.py:75
+#: ./content/mipagoadapter.py:101
 msgid "Enter the sender code"
 msgstr ""
 
-#: ./content/mipagoadapter.py:86
+#: ./content/mipagoadapter.py:112
 msgid "Enter the suffix of this payment"
 msgstr ""
 
@@ -136,12 +182,44 @@ msgstr ""
 msgid "Nothing was deleted"
 msgstr ""
 
-#: ./content/mipagoadapter.py:121
+#: ./content/mipagoadapter.py:148
 msgid "Offline payment"
 msgstr ""
 
-#: ./content/mipagoadapter.py:122
+#: ./content/mipagoadapter.py:149
 msgid "Online payment"
+msgstr ""
+
+#: ./content/mipagoadapter.py:427
+msgid "Override the value of message 2 in basque"
+msgstr ""
+
+#: ./content/mipagoadapter.py:412
+msgid "Override the value of message 2 in spanish"
+msgstr ""
+
+#: ./content/mipagoadapter.py:457
+msgid "Override the value of message 3 in basque"
+msgstr ""
+
+#: ./content/mipagoadapter.py:442
+msgid "Override the value of message 3 in spanish"
+msgstr ""
+
+#: ./content/mipagoadapter.py:396
+msgid "Override the value of message 4 in basque"
+msgstr ""
+
+#: ./content/mipagoadapter.py:382
+msgid "Override the value of message 4 in spanish"
+msgstr ""
+
+#: ./content/mipagoadapter.py:367
+msgid "Override the value of the payment title in basque"
+msgstr ""
+
+#: ./content/mipagoadapter.py:353
+msgid "Override the value of the payment title in spanish"
 msgstr ""
 
 #: ./browser/manage.py:45
@@ -172,16 +250,60 @@ msgstr ""
 msgid "Reference number"
 msgstr ""
 
-#: ./content/mipagoadapter.py:280
+#: ./content/mipagoadapter.py:715
 msgid "Reference number is bigger than 10 digits. Please delete old reference numbers"
 msgstr ""
 
-#: ./content/mipagoadapter.py:126
+#: ./content/mipagoadapter.py:153
 msgid "Select the available payment modes"
 msgstr ""
 
-#: ./content/mipagoadapter.py:111
+#: ./content/mipagoadapter.py:138
 msgid "Select the language of the screens"
+msgstr ""
+
+#: ./content/mipagoadapter.py:219
+msgid "Select which field of the form has the citizen's 1st surname"
+msgstr ""
+
+#: ./content/mipagoadapter.py:231
+msgid "Select which field of the form has the citizen's 2nd surname"
+msgstr ""
+
+#: ./content/mipagoadapter.py:267
+msgid "Select which field of the form has the citizen's address"
+msgstr ""
+
+#: ./content/mipagoadapter.py:279
+msgid "Select which field of the form has the citizen's city"
+msgstr ""
+
+#: ./content/mipagoadapter.py:316
+msgid "Select which field of the form has the citizen's country"
+msgstr ""
+
+#: ./content/mipagoadapter.py:340
+msgid "Select which field of the form has the citizen's email"
+msgstr ""
+
+#: ./content/mipagoadapter.py:243
+msgid "Select which field of the form has the citizen's name"
+msgstr ""
+
+#: ./content/mipagoadapter.py:255
+msgid "Select which field of the form has the citizen's nif"
+msgstr ""
+
+#: ./content/mipagoadapter.py:328
+msgid "Select which field of the form has the citizen's phone"
+msgstr ""
+
+#: ./content/mipagoadapter.py:292
+msgid "Select which field of the form has the citizen's postal code"
+msgstr ""
+
+#: ./content/mipagoadapter.py:304
+msgid "Select which field of the form has the citizen's territory"
 msgstr ""
 
 #: ./browser/manage.pt:44
@@ -192,7 +314,7 @@ msgstr ""
 msgid "There are no payments yet."
 msgstr ""
 
-#: ./content/mipagoadapter.py:261
+#: ./content/mipagoadapter.py:693
 msgid "There was an error processing the payment. Please try again"
 msgstr ""
 
@@ -206,6 +328,34 @@ msgstr ""
 
 #: ./browser/manage.py:41
 msgid "User redirected to MiPago"
+msgstr ""
+
+#: ./content/mipagoadapter.py:368
+msgid "Write here the basque text that will override the default name of the payment coming from the payment service configuration"
+msgstr ""
+
+#: ./content/mipagoadapter.py:428
+msgid "Write here the basque text that will override the value shown in the PDF file"
+msgstr ""
+
+#: ./content/mipagoadapter.py:397
+msgid "Write here the basque text that will override the value shown on the header of the PDF file"
+msgstr ""
+
+#: ./content/mipagoadapter.py:485
+msgid "Write here the script that calculates the amount"
+msgstr ""
+
+#: ./content/mipagoadapter.py:354
+msgid "Write here the spanish text that will override the default name of the payment coming from the payment service configuration"
+msgstr ""
+
+#: ./content/mipagoadapter.py:413
+msgid "Write here the spanish text that will override the value shown in the PDF file"
+msgstr ""
+
+#: ./content/mipagoadapter.py:383
+msgid "Write here the spanish text that will override the value shown on the header of the PDF file"
 msgstr ""
 
 #: ./configure.zcml:23

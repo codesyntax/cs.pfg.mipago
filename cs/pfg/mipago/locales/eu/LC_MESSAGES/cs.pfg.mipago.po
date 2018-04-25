@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"PO-Revision-Date: 2018-04-20 13:37+0200\n"
+"POT-Creation-Date: 2018-04-25 10:49+0000\n"
+"PO-Revision-Date: 2018-04-25 13:16+0200\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,194 +16,354 @@ msgstr ""
 "Language: eu\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: ./content/mipagoadapter.py:55
+#: content/mipagoadapter.py:81
 msgid "502: Notebook 60, modality 1, short format"
 msgstr "502: 60 koadernoa, 1 modalitatea, formatu laburra"
 
-#: ./content/mipagoadapter.py:58
+#: content/mipagoadapter.py:84
 msgid "507: Notebook 57, short format"
 msgstr "507: 57 koadernoa, formatu laburra"
 
-#: ./content/mipagoadapter.py:56
+#: content/mipagoadapter.py:82
 msgid "521: Notebook 60, modality 2, short format"
 msgstr "521: 60 koadernoa, 2 modalitatea, formatu laburra"
 
-#: ./content/mipagoadapter.py:57
+#: content/mipagoadapter.py:83
 msgid "522: Notebook 60, modality 2, long format"
 msgstr "522: 60 koadernoa, 2 modalitatea, formatu luzea"
 
-#: ./content/mipagoadapter.py:40
+#: content/mipagoadapter.py:66
 msgid "9050299: Notebook 60, modality 1"
 msgstr "9050299: 60 koadernoa, 1 modalitatea"
 
-#: ./content/mipagoadapter.py:42
+#: content/mipagoadapter.py:68
 msgid "9050794: Notebook 57"
 msgstr "9050794: 57 koadernoa"
 
-#: ./content/mipagoadapter.py:41
+#: content/mipagoadapter.py:67
 msgid "9052180: Notebook 60, modality 2"
 msgstr "9052180: 60 koadernoa, 2 modalitatea"
 
-#: ./profiles/default/types/MiPagoAdapter.xml
+#: profiles/default/types/MiPagoAdapter.xml
 msgid "Adapter for payments with MiPago"
 msgstr "Nire Ordainketa zerbitzuarekin ordainketak egiteko ekintza"
 
-#: ./content/mipagoadapter.py:148
+#: content/mipagoadapter.py:198
 msgid "All payments will have consecutive numbers, enter here the value of the first."
 msgstr "Ordainketa guztiek jarraian dauden erreferentzia zenbakia edukiko dut, sartu hemen kontaketa hasteko lehenengo zenbakia."
 
-#: ./browser/manage.pt:38
+#: browser/manage.pt:38
 msgid "Amount"
 msgstr "Kopurua"
 
-#: ./content/mipagoadapter.py:171
-msgid "Amount Expression"
-msgstr "Kopuruaren espresioa"
+#: content/mipagoadapter.py:482
+msgid "Amount calculation script"
+msgstr "Kopuruaren kalkulurako scripta"
 
-#: ./content/mipagoadapter.py:157
+#: content/mipagoadapter.py:207
 msgid "Check if the payments should be made on the TEST platform"
 msgstr "Ordainketa PROBAKO plataforman egin behar da?"
 
-#: ./browser/manage.pt:41
+#: content/mipagoadapter.py:468
+msgid "Check if you need to calculate the amount using a python script"
+msgstr "Aukeratu ordainketaren kopurua python script bat erabiliz kalkulatu behar bada"
+
+#: content/mipagoadapter.py:266
+msgid "Citizen address field"
+msgstr "Hiritarraren \"Helbidea\" hartzeko eremua"
+
+#: content/mipagoadapter.py:278
+msgid "Citizen city field"
+msgstr "Hiritarraren \"Herria\" hartzeko eremua"
+
+#: content/mipagoadapter.py:315
+msgid "Citizen country field"
+msgstr "Hiritarraren \"Herrialdea\" hartzeko eremua"
+
+#: content/mipagoadapter.py:339
+msgid "Citizen email field"
+msgstr "Hiritarraren \"Eposta\" hartzeko eremua"
+
+#: content/mipagoadapter.py:242
+msgid "Citizen name field"
+msgstr "Hiritarraren \"Izena\" hartzeko eremua"
+
+#: content/mipagoadapter.py:254
+msgid "Citizen nif field"
+msgstr "Hiritarraren \"NAN\" hartzeko eremua"
+
+#: content/mipagoadapter.py:327
+msgid "Citizen phone field"
+msgstr "Hiritarraren \"Telefonoa\" hartzeko eremua"
+
+#: content/mipagoadapter.py:291
+msgid "Citizen postal code field"
+msgstr "Hiritarraren \"Posta kodea\" hartzeko eremua"
+
+#: content/mipagoadapter.py:218
+msgid "Citizen surname1 field"
+msgstr "Hiritarraren \"1. abizena\" hartzeko eremua"
+
+#: content/mipagoadapter.py:230
+msgid "Citizen surname2 field"
+msgstr "Hiritarraren \"2. abizena\" hartzeko eremua"
+
+#: content/mipagoadapter.py:303
+msgid "Citizen territory field"
+msgstr "Hiritarraren \"Lurraldea\" hartzeko eremua"
+
+#: content/mipagoadapter.py:176
+msgid "Concept description in basque "
+msgstr "Ordainketaren kontzeptua (euskaraz)"
+
+#: content/mipagoadapter.py:165
+msgid "Concept description in spanish "
+msgstr "Ordainketaren kontzeptua (gaztelaniaz)"
+
+#: browser/manage.pt:41
 msgid "Date"
 msgstr "Data"
 
-#: ./browser/payment.pt:42
+#: browser/payment.pt:42
 msgid "Date and time"
 msgstr "Data eta ordua"
 
-#: ./browser/manage.pt:29
+#: browser/manage.pt:29
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: ./browser/manage.pt:80
+#: browser/manage.pt:80
 msgid "Delete selected payments"
 msgstr "Ezabatu aukeratutakoak"
 
-#: ./browser/manage.pt:20
+#: browser/manage.pt:20
 msgid "Download data"
 msgstr "Datuak deskargatu"
 
-#: ./content/mipagoadapter.py:49
+#: content/mipagoadapter.py:75
 msgid "Enter the CPR code of this payment"
 msgstr "Ordainketa honen CPR kodea sartu"
 
-#: ./content/mipagoadapter.py:137
+#: content/mipagoadapter.py:187
 msgid "Enter the amount to be paid"
 msgstr "Ordainketa honen kopurua sartu"
 
-#: ./content/mipagoadapter.py:65
+#: content/mipagoadapter.py:91
 msgid "Enter the format code of this payment"
 msgstr "Ordainketa honen formatua sartu"
 
-#: ./content/mipagoadapter.py:96
-msgid "Enter the number of the days that the user has to pay counting from the day he fills the form"
-msgstr "Formularioa betetzen denetik zenbat eguneko epea dagoen ordainketa gauzatzeko."
+#: content/mipagoadapter.py:123
+msgid "Enter the limit date to do the payment"
+msgstr "Ordainketa egiteko muga"
 
-#: ./content/mipagoadapter.py:147
+#: content/mipagoadapter.py:197
 msgid "Enter the number of the first reference number"
 msgstr "Lehenengo erreferentzia zenbakia sartu"
 
-#: ./content/mipagoadapter.py:75
+#: content/mipagoadapter.py:101
 msgid "Enter the sender code"
 msgstr "Ordainketa jasoko duenaren kodea sartu"
 
-#: ./content/mipagoadapter.py:86
+#: content/mipagoadapter.py:112
 msgid "Enter the suffix of this payment"
 msgstr "Ordainketaren atzizkia sartu"
 
-#: ./browser/manage.pt:47
+#: browser/manage.pt:47
 msgid "Form data"
 msgstr "Formularioko datuak"
 
-#: ./browser/manage.pt:15
+#: browser/manage.pt:15
 msgid "Manage payments"
 msgstr "Ordainketak kudeatu"
 
-#: ./profiles/default/types/MiPagoAdapter.xml
+#: profiles/default/types/MiPagoAdapter.xml
 msgid "MiPagoAdapter"
 msgstr "MiPagoAdapter"
 
-#: ./browser/manage.py:81
+#: browser/manage.py:81
 msgid "Nothing was deleted"
 msgstr "Ezer ez da ezabatu"
 
-#: ./content/mipagoadapter.py:121
+#: content/mipagoadapter.py:148
 msgid "Offline payment"
 msgstr "Offline ordainketa: bankuan egin beharrekoa"
 
-#: ./content/mipagoadapter.py:122
+#: content/mipagoadapter.py:149
 msgid "Online payment"
 msgstr "Online ordainketa"
 
-#: ./browser/manage.py:45
+#: content/mipagoadapter.py:427
+msgid "Override the value of message 2 in basque"
+msgstr "2. mezua gainidatzi (euskaraz)"
+
+#: content/mipagoadapter.py:412
+msgid "Override the value of message 2 in spanish"
+msgstr "2. mezua gainidatzi (gaztelaniaz)"
+
+#: content/mipagoadapter.py:457
+msgid "Override the value of message 3 in basque"
+msgstr "3. mezua gainidatzi (euskaraz)"
+
+#: content/mipagoadapter.py:442
+msgid "Override the value of message 3 in spanish"
+msgstr "3. mezua gainidatzi (gaztelaniaz)"
+
+#: content/mipagoadapter.py:396
+msgid "Override the value of message 4 in basque"
+msgstr "4. mezua gainidatzi (euskaraz)"
+
+#: content/mipagoadapter.py:382
+msgid "Override the value of message 4 in spanish"
+msgstr "4. mezua gainidatzi (gaztelaniaz)"
+
+#: content/mipagoadapter.py:367
+msgid "Override the value of the payment title in basque"
+msgstr "Ordainketaren agiriaren izenburua gainidatzi (euskaraz)"
+
+#: content/mipagoadapter.py:353
+msgid "Override the value of the payment title in spanish"
+msgstr "Ordainketaren agiriaren izenburua gainidatzi (gaztelaniaz)"
+
+#: browser/manage.py:45
 msgid "Payment NOT completed"
 msgstr "Ordainketa EZ DA gauzatu"
 
-#: ./browser/manage.pt:35
+#: browser/manage.pt:35
 msgid "Payment code"
 msgstr "Ordainketa kodea"
 
-#: ./browser/payment.pt:36
+#: browser/payment.pt:36
 msgid "Payment code number"
 msgstr "Ordainketa kodea"
 
-#: ./browser/manage.py:43
+#: browser/manage.py:43
 msgid "Payment completed successfuly"
 msgstr "Ordainketa ondo gauzatu da"
 
-#: ./browser/manage.py:79
+#: browser/manage.py:79
 msgid "Payments were deleted"
 msgstr "Ordainketak ondo ezabatu dira"
 
-#: ./configure.zcml:23
+#: configure.zcml:23
 msgid "PloneFormGen adapter to pay with Basque Government's payment service"
 msgstr "PloneFormGenerako ekintza, Eusko Jaurlaritzaren Nire Ordainketa zerbitzua erabiltzeko"
 
-#: ./browser/manage.pt:32
+#: browser/manage.pt:32
 msgid "Reference number"
 msgstr "Erreferentzia zenbakia"
 
-#: ./content/mipagoadapter.py:280
+#: content/mipagoadapter.py:715
 msgid "Reference number is bigger than 10 digits. Please delete old reference numbers"
 msgstr "Erreferentzia zenbakiak 10 zenbaki baino gehiago ditu. "
 
-#: ./content/mipagoadapter.py:126
+#: content/mipagoadapter.py:153
 msgid "Select the available payment modes"
 msgstr "Aukeratu erabiltzaileari eskainiko zaizkion ordainketa moduak"
 
-#: ./content/mipagoadapter.py:111
+#: content/mipagoadapter.py:138
 msgid "Select the language of the screens"
 msgstr "Aukeratu ordainketa pantailetako hizkuntza"
 
-#: ./browser/manage.pt:44
+#: content/mipagoadapter.py:219
+msgid "Select which field of the form has the citizen's 1st surname"
+msgstr "Aukeratu formularioko zein eremuk duen hiritarraren 1. abizena"
+
+#: content/mipagoadapter.py:231
+msgid "Select which field of the form has the citizen's 2nd surname"
+msgstr "Aukeratu formularioko zein eremuk duen hiritarraren 2. abizena"
+
+#: content/mipagoadapter.py:267
+msgid "Select which field of the form has the citizen's address"
+msgstr "Aukeratu formularioko zein eremuk duen hiritarraren helbidea"
+
+#: content/mipagoadapter.py:279
+msgid "Select which field of the form has the citizen's city"
+msgstr "Aukeratu formularioko zein eremuk duen hiritarraren herria"
+
+#: content/mipagoadapter.py:316
+msgid "Select which field of the form has the citizen's country"
+msgstr "Aukeratu formularioko zein eremuk duen hiritarraren herrialdea"
+
+#: content/mipagoadapter.py:340
+msgid "Select which field of the form has the citizen's email"
+msgstr "Aukeratu formularioko zein eremuk duen hiritarraren eposta"
+
+#: content/mipagoadapter.py:243
+msgid "Select which field of the form has the citizen's name"
+msgstr "Aukeratu formularioko zein eremuk duen hiritarraren izena"
+
+#: content/mipagoadapter.py:255
+msgid "Select which field of the form has the citizen's nif"
+msgstr "Aukeratu formularioko zein eremuk duen hiritarraren NANa"
+
+#: content/mipagoadapter.py:328
+msgid "Select which field of the form has the citizen's phone"
+msgstr "Aukeratu formularioko zein eremuk duen hiritarraren telefonoa"
+
+#: content/mipagoadapter.py:292
+msgid "Select which field of the form has the citizen's postal code"
+msgstr "Aukeratu formularioko zein eremuk duen hiritarraren posta kodea"
+
+#: content/mipagoadapter.py:304
+msgid "Select which field of the form has the citizen's territory"
+msgstr "Aukeratu formularioko zein eremuk duen hiritarraren lurraldea"
+
+#: browser/manage.pt:44
 msgid "Status"
 msgstr "Egoera"
 
-#: ./browser/manage.pt:85
+#: browser/manage.pt:85
 msgid "There are no payments yet."
 msgstr "Ez dago ordainketarik."
 
-#: ./content/mipagoadapter.py:261
+#: content/mipagoadapter.py:693
 msgid "There was an error processing the payment. Please try again"
 msgstr "Errorea gertatu da ordainketa egiterakoan. Saiatu berriz mesedez."
 
-#: ./configure.zcml:31
+#: configure.zcml:31
 msgid "Uninstalls the cs.pfg.mipago add-on."
 msgstr "cs.pfg.mipago kendu"
 
-#: ./browser/manage.py:47
+#: browser/manage.py:47
 msgid "Unkown status"
 msgstr "Egoera ezezaguna"
 
-#: ./browser/manage.py:41
+#: browser/manage.py:41
 msgid "User redirected to MiPago"
 msgstr "Erabiltzailea Nire Ordainketara ondo bidali da"
 
-#: ./configure.zcml:23
+#: content/mipagoadapter.py:368
+msgid "Write here the basque text that will override the default name of the payment coming from the payment service configuration"
+msgstr "Idatzi hemen ordainketa zerbitzutik datorren ordainketaren izenburua gainidatziko duen testua (euskaraz)"
+
+#: content/mipagoadapter.py:428
+msgid "Write here the basque text that will override the value shown in the PDF file"
+msgstr "Idatzi hemen ordainketa zerbitzutik datorren eta ordainketa agirian agertuko den testua gainidazteko testua (euskaraz)"
+
+#: content/mipagoadapter.py:397
+msgid "Write here the basque text that will override the value shown on the header of the PDF file"
+msgstr "Idatzi hemen ordainketa zerbitzutik datorren eta ordainketa agirian agertuko den goiburuko testua gainidazteko testua (euskaraz)"
+
+#: content/mipagoadapter.py:485
+msgid "Write here the script that calculates the amount"
+msgstr "Idatzi hemen ordainketaren kopurua kalkulatuko duen scripta"
+
+#: content/mipagoadapter.py:354
+msgid "Write here the spanish text that will override the default name of the payment coming from the payment service configuration"
+msgstr "Idatzi hemen ordainketa zerbitzutik datorren ordainketaren izenburua gainidatziko duen testua (gaztelaniaz)"
+
+#: content/mipagoadapter.py:413
+msgid "Write here the spanish text that will override the value shown in the PDF file"
+msgstr "Idatzi hemen ordainketa zerbitzutik datorren eta ordainketa agirian agertuko den testua gainidazteko testua (gaztelaniaz)"
+
+#: content/mipagoadapter.py:383
+msgid "Write here the spanish text that will override the value shown on the header of the PDF file"
+msgstr "Idatzi hemen ordainketa zerbitzutik datorren eta ordainketa agirian agertuko den goiburuko testua gainidazteko testua (gaztelaniaz)"
+
+#: configure.zcml:23
 msgid "cs.pfg.mipago"
 msgstr "cs.pfg.mipago"
 
-#: ./configure.zcml:31
+#: configure.zcml:31
 msgid "cs.pfg.mipago (uninstall)"
 msgstr "cs.pfg.mipago (lendu)"

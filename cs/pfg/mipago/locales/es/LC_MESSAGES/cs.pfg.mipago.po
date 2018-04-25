@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"PO-Revision-Date: 2018-04-20 13:39+0200\n"
+"POT-Creation-Date: 2018-04-25 10:49+0000\n"
+"PO-Revision-Date: 2018-04-25 13:07+0200\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,194 +16,354 @@ msgstr ""
 "Language: es\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: ./content/mipagoadapter.py:55
+#: content/mipagoadapter.py:81
 msgid "502: Notebook 60, modality 1, short format"
 msgstr "502: cuaderno 60, modalidad 1, formato corto"
 
-#: ./content/mipagoadapter.py:58
+#: content/mipagoadapter.py:84
 msgid "507: Notebook 57, short format"
 msgstr "507: cuaderno 57, formato corto"
 
-#: ./content/mipagoadapter.py:56
+#: content/mipagoadapter.py:82
 msgid "521: Notebook 60, modality 2, short format"
 msgstr "521: cuaderno 60, modalidad 2, formato corto"
 
-#: ./content/mipagoadapter.py:57
+#: content/mipagoadapter.py:83
 msgid "522: Notebook 60, modality 2, long format"
 msgstr "522: cuaderno 60. modalidad 2, formato largo"
 
-#: ./content/mipagoadapter.py:40
+#: content/mipagoadapter.py:66
 msgid "9050299: Notebook 60, modality 1"
 msgstr "9050299: cuadernos 60, modalidad 1"
 
-#: ./content/mipagoadapter.py:42
+#: content/mipagoadapter.py:68
 msgid "9050794: Notebook 57"
 msgstr "9050794: cuaderno 57"
 
-#: ./content/mipagoadapter.py:41
+#: content/mipagoadapter.py:67
 msgid "9052180: Notebook 60, modality 2"
 msgstr "9052180: cuaderno 60, modalidad 2"
 
-#: ./profiles/default/types/MiPagoAdapter.xml
+#: profiles/default/types/MiPagoAdapter.xml
 msgid "Adapter for payments with MiPago"
 msgstr "Acción para hacer pagos con MiPago"
 
-#: ./content/mipagoadapter.py:148
+#: content/mipagoadapter.py:198
 msgid "All payments will have consecutive numbers, enter here the value of the first."
 msgstr "Los pagos tienen números de referencia consecutivos, introduzca el primer número de referencia aquí"
 
-#: ./browser/manage.pt:38
+#: browser/manage.pt:38
 msgid "Amount"
 msgstr "Cantidad"
 
-#: ./content/mipagoadapter.py:171
-msgid "Amount Expression"
-msgstr "Expresión para calcular la cantidad"
+#: content/mipagoadapter.py:482
+msgid "Amount calculation script"
+msgstr "Script para el cálculo de la cantidad"
 
-#: ./content/mipagoadapter.py:157
+#: content/mipagoadapter.py:207
 msgid "Check if the payments should be made on the TEST platform"
 msgstr "¿Se debe realizar el pago en la plataforma de PRUEBAS?"
 
-#: ./browser/manage.pt:41
+#: content/mipagoadapter.py:468
+msgid "Check if you need to calculate the amount using a python script"
+msgstr "Seleccionar si se quiere calcular la cantidad en vez de utilizar el valor del campo \"Cantidad\""
+
+#: content/mipagoadapter.py:266
+msgid "Citizen address field"
+msgstr "Campo del que se obtendrá el dato \"Dirección\" para la pasarela de pagos"
+
+#: content/mipagoadapter.py:278
+msgid "Citizen city field"
+msgstr "Campo del que se obtendrá el dato \"Localidad\" para la pasarela de pagos"
+
+#: content/mipagoadapter.py:315
+msgid "Citizen country field"
+msgstr "Campo del que se obtendrá el dato \"País\" para la pasarela de pagos"
+
+#: content/mipagoadapter.py:339
+msgid "Citizen email field"
+msgstr "Campo del que se obtendrá el dato \"Correo electrónico\" para la pasarela de pagos"
+
+#: content/mipagoadapter.py:242
+msgid "Citizen name field"
+msgstr "Campo del que se obtendrá el dato \"Nombre\" para la pasarela de pagos"
+
+#: content/mipagoadapter.py:254
+msgid "Citizen nif field"
+msgstr "Campo del que se obtendrá el dato \"DNI/NIF\" para la pasarela de pagos"
+
+#: content/mipagoadapter.py:327
+msgid "Citizen phone field"
+msgstr "Campo del que se obtendrá el dato \"Teléfono\" para la pasarela de pagos"
+
+#: content/mipagoadapter.py:291
+msgid "Citizen postal code field"
+msgstr "Campo del que se obtendrá el dato \"Código postal\" para la pasarela de pagos"
+
+#: content/mipagoadapter.py:218
+msgid "Citizen surname1 field"
+msgstr "Campo del que se obtendrá el dato \"1º Apellido\" para la pasarela de pagos"
+
+#: content/mipagoadapter.py:230
+msgid "Citizen surname2 field"
+msgstr "Campo del que se obtendrá el dato \"2º Apellido\" para la pasarela de pagos"
+
+#: content/mipagoadapter.py:303
+msgid "Citizen territory field"
+msgstr "Campo del que se obtendrá el dato \"Territorio\" para la pasarela de pagos"
+
+#: content/mipagoadapter.py:176
+msgid "Concept description in basque "
+msgstr "Concepto por el que se realiza el pago (en euskara)"
+
+#: content/mipagoadapter.py:165
+msgid "Concept description in spanish "
+msgstr "Concepto por el que se realiza el pago (en español)"
+
+#: browser/manage.pt:41
 msgid "Date"
 msgstr "Fecha"
 
-#: ./browser/payment.pt:42
+#: browser/payment.pt:42
 msgid "Date and time"
 msgstr "Fecha y hora"
 
-#: ./browser/manage.pt:29
+#: browser/manage.pt:29
 msgid "Delete"
 msgstr "Eliminar"
 
-#: ./browser/manage.pt:80
+#: browser/manage.pt:80
 msgid "Delete selected payments"
 msgstr "Eliminar pagos seleccionados"
 
-#: ./browser/manage.pt:20
+#: browser/manage.pt:20
 msgid "Download data"
 msgstr "Descargar datos"
 
-#: ./content/mipagoadapter.py:49
+#: content/mipagoadapter.py:75
 msgid "Enter the CPR code of this payment"
 msgstr "Introduzca el código CPR de este pago"
 
-#: ./content/mipagoadapter.py:137
+#: content/mipagoadapter.py:187
 msgid "Enter the amount to be paid"
 msgstr "Introduzca la cantidad a pagar"
 
-#: ./content/mipagoadapter.py:65
+#: content/mipagoadapter.py:91
 msgid "Enter the format code of this payment"
 msgstr "Introduzca el código del formato del pago"
 
-#: ./content/mipagoadapter.py:96
-msgid "Enter the number of the days that the user has to pay counting from the day he fills the form"
-msgstr "Introduzca el número de días que tiene el usuario para completar el pago contados desde el día en el que se envía el formulario"
+#: content/mipagoadapter.py:123
+msgid "Enter the limit date to do the payment"
+msgstr "Introduzca la fecha límite para realizar el pago"
 
-#: ./content/mipagoadapter.py:147
+#: content/mipagoadapter.py:197
 msgid "Enter the number of the first reference number"
 msgstr "Introduzca el primer número de referencia"
 
-#: ./content/mipagoadapter.py:75
+#: content/mipagoadapter.py:101
 msgid "Enter the sender code"
 msgstr "Introduzca el código del emisor del pago"
 
-#: ./content/mipagoadapter.py:86
+#: content/mipagoadapter.py:112
 msgid "Enter the suffix of this payment"
 msgstr "Introduzca el código del sufijo del pago"
 
-#: ./browser/manage.pt:47
+#: browser/manage.pt:47
 msgid "Form data"
 msgstr "Datos"
 
-#: ./browser/manage.pt:15
+#: browser/manage.pt:15
 msgid "Manage payments"
 msgstr "Gestionar Pagos"
 
-#: ./profiles/default/types/MiPagoAdapter.xml
+#: profiles/default/types/MiPagoAdapter.xml
 msgid "MiPagoAdapter"
 msgstr "Adaptador MiPago"
 
-#: ./browser/manage.py:81
+#: browser/manage.py:81
 msgid "Nothing was deleted"
 msgstr "No se ha eliminado nada"
 
-#: ./content/mipagoadapter.py:121
+#: content/mipagoadapter.py:148
 msgid "Offline payment"
 msgstr "Pago offline (en el banco)"
 
-#: ./content/mipagoadapter.py:122
+#: content/mipagoadapter.py:149
 msgid "Online payment"
 msgstr "Pago online"
 
-#: ./browser/manage.py:45
+#: content/mipagoadapter.py:427
+msgid "Override the value of message 2 in basque"
+msgstr "Sobreescribir el mensaje 2 (euskara)"
+
+#: content/mipagoadapter.py:412
+msgid "Override the value of message 2 in spanish"
+msgstr "Sobreescribir el mensaje 2 (español)"
+
+#: content/mipagoadapter.py:457
+msgid "Override the value of message 3 in basque"
+msgstr "Sobreescribir el mensaje 3 (euskara)"
+
+#: content/mipagoadapter.py:442
+msgid "Override the value of message 3 in spanish"
+msgstr "Sobreescribir el mensaje 3 (español)"
+
+#: content/mipagoadapter.py:396
+msgid "Override the value of message 4 in basque"
+msgstr "Sobreescribir el mensaje 4 (euskara)"
+
+#: content/mipagoadapter.py:382
+msgid "Override the value of message 4 in spanish"
+msgstr "Sobreescribir el mensaje 4 (español)"
+
+#: content/mipagoadapter.py:367
+msgid "Override the value of the payment title in basque"
+msgstr "Sobreescribir el título del pago (euskara)"
+
+#: content/mipagoadapter.py:353
+msgid "Override the value of the payment title in spanish"
+msgstr "Sobreescribir el título del pago (español)"
+
+#: browser/manage.py:45
 msgid "Payment NOT completed"
 msgstr "Pago NO completado"
 
-#: ./browser/manage.pt:35
+#: browser/manage.pt:35
 msgid "Payment code"
 msgstr "Código del pago"
 
-#: ./browser/payment.pt:36
+#: browser/payment.pt:36
 msgid "Payment code number"
 msgstr "Código de pago"
 
-#: ./browser/manage.py:43
+#: browser/manage.py:43
 msgid "Payment completed successfuly"
 msgstr "Pago correcto"
 
-#: ./browser/manage.py:79
+#: browser/manage.py:79
 msgid "Payments were deleted"
 msgstr "Los pagos se han eliminado correctamente"
 
-#: ./configure.zcml:23
+#: configure.zcml:23
 msgid "PloneFormGen adapter to pay with Basque Government's payment service"
 msgstr "Adaptador de PloneFormGen para realizar pagos con el servicio Mi Pago del Gobierno Vasco"
 
-#: ./browser/manage.pt:32
+#: browser/manage.pt:32
 msgid "Reference number"
 msgstr "Número de referncia"
 
-#: ./content/mipagoadapter.py:280
+#: content/mipagoadapter.py:715
 msgid "Reference number is bigger than 10 digits. Please delete old reference numbers"
 msgstr "El número de referencia tiene más de 10 dígitos. Elimine por favor los pagos antiguos"
 
-#: ./content/mipagoadapter.py:126
+#: content/mipagoadapter.py:153
 msgid "Select the available payment modes"
 msgstr "Seleccione los modos de pago disponibles que se mostrarán al usuario"
 
-#: ./content/mipagoadapter.py:111
+#: content/mipagoadapter.py:138
 msgid "Select the language of the screens"
 msgstr "Seleccione el idioma en el que se mostrarán las pantallas de pago"
 
-#: ./browser/manage.pt:44
+#: content/mipagoadapter.py:219
+msgid "Select which field of the form has the citizen's 1st surname"
+msgstr "Seleccione de qué campo se obtendrá el valor del 1º apellido"
+
+#: content/mipagoadapter.py:231
+msgid "Select which field of the form has the citizen's 2nd surname"
+msgstr "Seleccione de qué campo se obtendrá el valor del 2º apellido"
+
+#: content/mipagoadapter.py:267
+msgid "Select which field of the form has the citizen's address"
+msgstr "Seleccione de qué campo se obtendrá el valor de la dirección"
+
+#: content/mipagoadapter.py:279
+msgid "Select which field of the form has the citizen's city"
+msgstr "Seleccione de qué campo se obtendrá el valor de la ciudad"
+
+#: content/mipagoadapter.py:316
+msgid "Select which field of the form has the citizen's country"
+msgstr "Seleccione de qué campo se obtendrá el valor del país"
+
+#: content/mipagoadapter.py:340
+msgid "Select which field of the form has the citizen's email"
+msgstr "Seleccione de qué campo se obtendrá el valor del correo electrónico"
+
+#: content/mipagoadapter.py:243
+msgid "Select which field of the form has the citizen's name"
+msgstr "Seleccione de qué campo se obtendrá el valor del nombre"
+
+#: content/mipagoadapter.py:255
+msgid "Select which field of the form has the citizen's nif"
+msgstr "Seleccione de qué campo se obtendrá el valor del DNI/NIF"
+
+#: content/mipagoadapter.py:328
+msgid "Select which field of the form has the citizen's phone"
+msgstr "Seleccione de qué campo se obtendrá el valor del teléfono"
+
+#: content/mipagoadapter.py:292
+msgid "Select which field of the form has the citizen's postal code"
+msgstr "Seleccione de qué campo se obtendrá el valor del código postal"
+
+#: content/mipagoadapter.py:304
+msgid "Select which field of the form has the citizen's territory"
+msgstr "Seleccione de qué campo se obtendrá el valor del territorio"
+
+#: browser/manage.pt:44
 msgid "Status"
 msgstr "Estado"
 
-#: ./browser/manage.pt:85
+#: browser/manage.pt:85
 msgid "There are no payments yet."
 msgstr "No hay pagos."
 
-#: ./content/mipagoadapter.py:261
+#: content/mipagoadapter.py:693
 msgid "There was an error processing the payment. Please try again"
 msgstr "Ha ocurrido un error al realizar el pago. Inténtelo otra vez por favor"
 
-#: ./configure.zcml:31
+#: configure.zcml:31
 msgid "Uninstalls the cs.pfg.mipago add-on."
 msgstr "Desinstalar cs.pfg.mipago"
 
-#: ./browser/manage.py:47
+#: browser/manage.py:47
 msgid "Unkown status"
 msgstr "Estado desconocido"
 
-#: ./browser/manage.py:41
+#: browser/manage.py:41
 msgid "User redirected to MiPago"
 msgstr "Usuario redirigido a Mi Pago"
 
-#: ./configure.zcml:23
+#: content/mipagoadapter.py:368
+msgid "Write here the basque text that will override the default name of the payment coming from the payment service configuration"
+msgstr "Introduzca aquí el nombre del pago que sobreescribirá el valor por defecto que viene de la pasarela de pago (euskara)"
+
+#: content/mipagoadapter.py:428
+msgid "Write here the basque text that will override the value shown in the PDF file"
+msgstr "Introduzca aquí el texto que sobreescribirá en el archivo PDF el valor por defecto (euskara)"
+
+#: content/mipagoadapter.py:397
+msgid "Write here the basque text that will override the value shown on the header of the PDF file"
+msgstr "Introduzca aquí el texto que sobreescribirá en el archivo PDF la cabecera por defecto (euskara)"
+
+#: content/mipagoadapter.py:485
+msgid "Write here the script that calculates the amount"
+msgstr "Escriba aquí el script que calculará la cantidad a pagar"
+
+#: content/mipagoadapter.py:354
+msgid "Write here the spanish text that will override the default name of the payment coming from the payment service configuration"
+msgstr "Introduzca aquí el nombre del pago que sobreescribirá el valor por defecto que viene de la pasarela de pago (español)"
+
+#: content/mipagoadapter.py:413
+msgid "Write here the spanish text that will override the value shown in the PDF file"
+msgstr "Introduzca aquí el texto que sobreescribirá en el archivo PDF el valor por defecto (español)"
+
+#: content/mipagoadapter.py:383
+msgid "Write here the spanish text that will override the value shown on the header of the PDF file"
+msgstr "Introduzca aquí el texto que sobreescribirá en el archivo PDF la cabecera por defecto (español)"
+
+#: configure.zcml:23
 msgid "cs.pfg.mipago"
 msgstr "cs.pfg.mipago"
 
-#: ./configure.zcml:31
+#: configure.zcml:31
 msgid "cs.pfg.mipago (uninstall)"
 msgstr "cs.pfg.mipago (desinstalar)"
