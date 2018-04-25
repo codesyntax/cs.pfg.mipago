@@ -507,13 +507,7 @@ MiPagoAdapterSchema['bcc_recipients'].widget.visible = {'view': 'invisible', 'ed
 
 # Change some labels and descriptions
 MiPagoAdapterSchema['to_field'].widget.label = _(u'Extract Recipient From')
-MiPagoAdapterSchema['to_field'].widget.description = _(u"""
-                Choose a form field from which you wish to extract
-                input for the To header. If you choose anything other
-                than "None", the user will not receive any email.
-                Be very cautious about allowing unguarded user
-                input for this purpose.
-                """)
+MiPagoAdapterSchema['to_field'].widget.description = _(u"""Choose a form field from which you wish to extract input for the To header. If you choose anything other than "None", the user will not receive any email. Be very cautious about allowing unguarded user input for this purpose.""")
 
 # Change schematas
 MiPagoAdapterSchema.changeSchemataForField('to_field', 'email')
