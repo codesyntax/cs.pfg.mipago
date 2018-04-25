@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b5 (unreleased)
+1.0b5 (2018-04-25)
 ------------------
 
 - Add email sending ability.
