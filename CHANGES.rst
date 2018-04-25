@@ -4,6 +4,18 @@ Changelog
 1.0b4 (unreleased)
 ------------------
 
+- Add an option to write a script to override the amount of the payment dynamically
+  [erral]
+
+- Add fields to override values of the payment service texts
+  [erral]
+
+- Add fields to send to the payment service the data of the citizen
+  [erral]
+
+- Change date limit field to be a date field.
+  [erral]
+
 - Translate action title.
   [erral]
 
