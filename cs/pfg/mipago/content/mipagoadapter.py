@@ -667,9 +667,20 @@ class MiPagoAdapter(FormActionAdapter):
 
 
         if self.getMipago_payment_description_es():
-            extra['mipago_payment_description_es'] = self.getMipago_payment_description_es()
+            if 'mipago_payment_description' not in extra:
+                extra['mipago_payment_description'] = {}
+
+            extra['mipago_payment_description'].update(
+                {'es': self.getMipago_payment_description_es()}
+            )
+
         if self.getMipago_payment_description_eu():
-            extra['mipago_payment_description_eu'] = self.getMipago_payment_description_eu()
+            if 'mipago_payment_description' not in extra:
+                extra['mipago_payment_description'] = {}
+
+            extra['mipago_payment_description'].update(
+                {'eu': self.getMipago_payment_description_eu()}
+            )
 
 
         try:
