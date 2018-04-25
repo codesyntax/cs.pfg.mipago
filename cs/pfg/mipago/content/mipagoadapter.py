@@ -208,7 +208,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
         )
     ),
 
-    atapi.StringField('citizen_surname1',
+    atapi.StringField(
+        'citizen_surname1',
         schemata='citizendata',
         searchable=0,
         required=0,
@@ -219,7 +220,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.StringField('citizen_surname2',
+    atapi.StringField(
+        'citizen_surname2',
         schemata='citizendata',
         searchable=0,
         required=0,
@@ -230,7 +232,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.StringField('citizen_name',
+    atapi.StringField(
+        'citizen_name',
         schemata='citizendata',
         searchable=0,
         required=0,
@@ -241,7 +244,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.StringField('citizen_nif',
+    atapi.StringField(
+        'citizen_nif',
         schemata='citizendata',
         searchable=0,
         required=0,
@@ -252,7 +256,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.StringField('citizen_address',
+    atapi.StringField(
+        'citizen_address',
         schemata='citizendata',
         searchable=0,
         required=0,
@@ -263,7 +268,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.StringField('citizen_city',
+    atapi.StringField(
+        'citizen_city',
         schemata='citizendata',
         searchable=0,
         required=0,
@@ -275,7 +281,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
         ),
 
 
-    atapi.StringField('citizen_postal_code',
+    atapi.StringField(
+        'citizen_postal_code',
         schemata='citizendata',
         searchable=0,
         required=0,
@@ -286,7 +293,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.StringField('citizen_territory',
+    atapi.StringField(
+        'citizen_territory',
         schemata='citizendata',
         searchable=0,
         required=0,
@@ -297,7 +305,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.StringField('citizen_country',
+    atapi.StringField(
+        'citizen_country',
         schemata='citizendata',
         searchable=0,
         required=0,
@@ -308,7 +317,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.StringField('citizen_phone',
+    atapi.StringField(
+        'citizen_phone',
         schemata='citizendata',
         searchable=0,
         required=0,
@@ -319,7 +329,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.StringField('citizen_email',
+    atapi.StringField(
+        'citizen_email',
         schemata='citizendata',
         searchable=0,
         required=0,
@@ -330,7 +341,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.TextField('message_top_description_spanish',
+    atapi.TextField(
+        'message_top_description_spanish',
         schemata='messages',
         searchable=0,
         required=0,
@@ -343,7 +355,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.TextField('message_top_description_basque',
+    atapi.TextField(
+        'message_top_description_basque',
         schemata='messages',
         searchable=0,
         required=0,
@@ -357,7 +370,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
         ),
 
 
-    atapi.TextField('message_4_spanish',
+    atapi.TextField(
+        'message_4_spanish',
         schemata='messages',
         searchable=0,
         required=0,
@@ -370,7 +384,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.TextField('message_4_basque',
+    atapi.TextField(
+        'message_4_basque',
         schemata='messages',
         searchable=0,
         required=0,
@@ -384,7 +399,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
         ),
 
 
-    atapi.TextField('message_2_spanish',
+    atapi.TextField(
+        'message_2_spanish',
         schemata='messages',
         searchable=0,
         required=0,
@@ -398,7 +414,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.TextField('message_2_basque',
+    atapi.TextField(
+        'message_2_basque',
         schemata='messages',
         searchable=0,
         required=0,
@@ -412,7 +429,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.TextField('message_3_spanish',
+    atapi.TextField(
+        'message_3_spanish',
         schemata='messages',
         searchable=0,
         required=0,
@@ -426,7 +444,8 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    atapi.TextField('message_3_basque',
+    atapi.TextField(
+        'message_3_basque',
         schemata='messages',
         searchable=0,
         required=0,
