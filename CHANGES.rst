@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b4 (unreleased)
+1.0b4 (2018-04-25)
 ------------------
 
 - Add an option to write a script to override the amount of the payment dynamically
