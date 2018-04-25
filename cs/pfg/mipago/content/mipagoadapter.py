@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Definition of the MiPagoAdapter content type
 """
-
+from AccessControl import ClassSecurityInfo
 from Acquisition import aq_parent
 from cs.pfg.mipago import mipagoMessageFactory as _
 from cs.pfg.mipago.config import ANNOTATION_KEY
@@ -10,25 +10,51 @@ from cs.pfg.mipago.config import MIPAGO_PAYMENT_CODE
 from cs.pfg.mipago.config import PAYMENT_STATUS_SENT_TO_MIPAGO
 from cs.pfg.mipago.config import PROJECTNAME
 from cs.pfg.mipago.interfaces import IMiPagoAdapter
+from logging import getLogger
 from Products.Archetypes import atapi
 from Products.Archetypes.atapi import DisplayList
 from Products.Archetypes.utils import shasattr
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 from Products.CMFCore.permissions import ModifyPortalContent
-from Products.PloneFormGen.config import EDIT_TALES_PERMISSION
+from Products.PloneFormGen.config import EDIT_PYTHON_PERMISSION
 from Products.PloneFormGen.config import FORM_ERROR_MARKER
 from Products.PloneFormGen.content.actionAdapter import FormActionAdapter
 from Products.PloneFormGen.content.actionAdapter import FormAdapterSchema
+from Products.PythonField import PythonField
+from Products.PythonScripts.PythonScript import PythonScript
 from Products.TALESField import TALESString
 from pymipago import make_payment_request
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import implements
-from logging import getLogger
 
 import datetime
 
 log = getLogger(__name__)
+
+
+default_script = """
+## Python Script
+##bind container=container
+##bind context=context
+##bind subpath=traverse_subpath
+##parameters=fields, ploneformgen, request
+##title=
+##
+# Available parameters:
+#  fields  = HTTP request form fields as a dict. Example:
+#            fields['fieldname1'] has the value the user
+#            entered/selected in the form
+#
+#  request = The current HTTP request.
+#            Access fields by request.form["myfieldname"]
+#
+#  ploneformgen = PloneFormGen object
+#
+# Return the amount to be payed by the end user as a float number
+
+assert False, "Please complete your script"
+"""
 
 
 MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
@@ -168,7 +194,7 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
         widget=atapi.IntegerWidget(
             description='',
             label=_('Enter the number of the first reference number'),
-            default=_('All payments will have consecutive numbers, enter here the value of the first.'),
+            default=_('All payments will have consecutive numbers, enter here the value of the first.'), # no-qa
             size=10)
     ),
     atapi.BooleanField(
@@ -413,25 +439,30 @@ MiPagoAdapterSchema = FormAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
-    TALESString('mipago_payment_amountOverride',
+    atapi.BooleanField(
+        'mipago_use_amountOverride',
+        schemata='overrides',
+        required=False,
+        default=False,
+        widget=atapi.BooleanWidget(
+            label=_('Check if you need to calculate the amount using a python script'),
+        )
+    ),
+
+    PythonField(
+        'mipago_payment_amountOverride',
         schemata='overrides',
         searchable=0,
         required=0,
-        validators=('talesvalidator',),
-        default='',
-        write_permission=EDIT_TALES_PERMISSION,
+        default=default_script,
+        write_permission=EDIT_PYTHON_PERMISSION,
         read_permission=ModifyPortalContent,
         isMetadata=True,  # just to hide from base view
-        widget=atapi.StringWidget(
-            label=_(u"Amount Expression"),
-            description=_(u"""
-                A TALES expression that will be evaluated to override any value
-                otherwise entered for amount value.
-                Leave empty if unneeded. Your expression should evaluate as a string.
-                PLEASE NOTE: errors in the evaluation of this expression will cause
-                an error on form display.
-            """),
-            size=70,
+        widget=atapi.TextAreaWidget(
+            label=_(u'Amount calculation script'),
+            rows=20,
+            visible={'view': 'invisible', 'edit': 'visible'},
+            description=_(u'Write here the script that calculates the amount'),
         ),
     ),
 
@@ -443,6 +474,7 @@ schemata.finalizeATCTSchema(MiPagoAdapterSchema, moveDiscussion=False)
 class InvalidReferenceNumber(Exception):
     pass
 
+
 class MiPagoAdapter(FormActionAdapter):
     """Adapter for payments with MiPago"""
     implements(IMiPagoAdapter)
@@ -452,6 +484,28 @@ class MiPagoAdapter(FormActionAdapter):
 
     # title = atapi.ATFieldProperty('title')
     # description = atapi.ATFieldProperty('description')
+
+    security = ClassSecurityInfo()
+
+    security.declarePrivate('updateScript')
+    def updateScript(self, body):
+        # Regenerate Python script object
+
+        # Sync set of script source code and
+        # creation of Python Script object.
+
+        bodyField = self.schema["mipago_payment_amountOverride"]
+        script = PythonScript(self.title_or_id())
+        script = script.__of__(self)
+
+        script.ZPythonScript_edit("fields, ploneformgen, request", body)
+
+        PythonField.set(bodyField, self, script)
+
+    security.declarePrivate('setMipago_payment_amountOverride')
+    def setMipago_payment_amountOverride(self, body):
+        # Make PythonScript construction to take parameters
+        self.updateScript(body)
 
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
     def onSuccess(self, fields, REQUEST=None):
@@ -484,7 +538,7 @@ class MiPagoAdapter(FormActionAdapter):
             log.info('Payment requests are being sent to the TEST environment')
 
 
-        amount = self.get_amount()
+        amount = self.get_amount(REQUEST)
         cpr = self.getMipago_cpr_code()
         sender = self.getMipago_sender()
         format = self.getMipago_format()
@@ -619,10 +673,13 @@ class MiPagoAdapter(FormActionAdapter):
             return {FORM_ERROR_MARKER: _(u'There was an error processing the payment. Please try again')}
 
 
-    def get_amount(self):
-        if shasattr(self, 'mipago_payment_amountOverride') and self.getRawMipago_payment_amountOverride():
-            # subject has a TALES override
-            amount = self.getMipago_payment_amountOverride().strip()
+    def get_amount(self, REQUEST):
+        if self.getMipago_use_amountOverride():
+            if REQUEST is not None:
+                data = self.sanifyFields(REQUEST.form)
+            else:
+                data = {}
+            amount = self.executeCustomScript(data, aq_parent(self), REQUEST)
         else:
             amount = self.getMipago_payment_amount()
 
@@ -687,5 +744,52 @@ class MiPagoAdapter(FormActionAdapter):
                 'FormStringField',
                 )
             )
+
+    security.declarePrivate('executeCustomScript')
+    def executeCustomScript(self, result, form, req):
+        # Execute in-place script
+
+        # @param result Extracted fields from REQUEST.form
+        # @param form PloneFormGen object
+
+        field = self.schema["mipago_payment_amountOverride"]
+        # Now pass through PythonField/PythonScript abstraction
+        # to access bad things (tm)
+        # otherwise there are silent failures
+        script = atapi.ObjectField.get(field, self)
+
+        log.debug("Executing Custom Script Adapter " + self.title_or_id() + " fields:" + str(result))
+
+        self.checkWarningsAndErrors()
+
+        response = script(result, form, req)
+        return response
+
+    security.declarePrivate('checkWarningsAndErrors')
+    def checkWarningsAndErrors(self):
+        # Raise exception if there has been bad things with the script compiling
+
+        field = self.schema["mipago_payment_amountOverride"]
+
+        script = atapi.ObjectField.get(field, self)
+
+        if len(script.warnings) > 0:
+            log.warn("Python script " + self.title_or_id() + " has warning:" + str(script.warnings))
+
+        if len(script.errors) > 0:
+            log.error("Python script "  + self.title_or_id() +  " has errors: " + str(script.errors))
+            raise ValueError("Python script "  + self.title_or_id() + " has errors: " + str(script.errors))
+
+
+    security.declarePrivate('sanifyFields')
+    def sanifyFields(self, form):
+        # Makes request.form fields accessible in a script
+        #
+        # Avoid Unauthorized exceptions since REQUEST.form is inaccesible
+
+        result = {}
+        for field in form:
+            result[field] = form[field]
+        return result
 
 atapi.registerType(MiPagoAdapter, PROJECTNAME)
