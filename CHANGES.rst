@@ -4,7 +4,11 @@ Changelog
 1.0b8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Document newest options.
+  [erral]
+
+- Translations for schemata titles.
+  [erral]
 
 
 1.0b7 (2018-04-27)
