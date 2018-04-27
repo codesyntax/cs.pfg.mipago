@@ -497,12 +497,18 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
 # Hide unneeded fields coming from formMailerAdapter
 MiPagoAdapterSchema['additional_headers'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['bcc_recipients'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['bccOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['cc_recipients'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['ccOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['gpg_keyid'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['recipient_name'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['recipientOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['replyto_field'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['senderOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['subject_field'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['subjectOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['xinfo_headers'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
-MiPagoAdapterSchema['cc_recipients'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
-MiPagoAdapterSchema['bcc_recipients'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 
 
 # Change some labels and descriptions
