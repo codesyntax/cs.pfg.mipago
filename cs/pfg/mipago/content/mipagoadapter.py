@@ -466,6 +466,43 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
+
+    atapi.StringField(
+        'image_1_link',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        widget=atapi.StringWidget(
+            label=_(u'1st image shown in the payment documents'),
+            description=_(u"Add the URL of the 1st image shown in the payment documents. You will need to send it to the Payment Service Administrators and get the URL from them."),
+            size=50,
+            ),
+    ),
+
+    atapi.StringField(
+        'image_2_link',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        widget=atapi.StringWidget(
+            label=_(u'2nd image shown in the payment documents'),
+            description=_(u"Add the URL of the 2nd image shown in the payment documents. You will need to send it to the Payment Service Administrators and get the URL from them."),
+            size=50,
+            ),
+    ),
+
+    atapi.StringField(
+        'pdf_generator_template',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        widget=atapi.StringWidget(
+            label=_(u'PDF generator template'),
+            description=_(u"Add the URL of the XSLT template that renders the PDF file. You will hardly need to change this. Contact the Payment Service Administrators for more information."),
+            size=50,
+            ),
+    ),
+
     atapi.BooleanField(
         'mipago_use_amountOverride',
         schemata='overrides',
@@ -675,6 +712,7 @@ class MiPagoAdapter(FormMailerAdapter):
                 {'eu': self.getMessage_top_description_basque()}
             )
 
+        # Citizen data
         if self.getCitizen_name() != '#NONE#':
             field_name = self.getCitizen_name()
             extra['citizen_name'] = REQUEST.get(field_name)
@@ -710,6 +748,7 @@ class MiPagoAdapter(FormMailerAdapter):
             extra['citizen_email'] = REQUEST.get(field_name)
 
 
+        # Payment concept / description
         if self.getMipago_payment_description_es() != '#NONE#':
             if 'mipago_payment_description' not in extra:
                 extra['mipago_payment_description'] = {}
@@ -725,6 +764,17 @@ class MiPagoAdapter(FormMailerAdapter):
             extra['mipago_payment_description'].update(
                 {'eu': self.getMipago_payment_description_eu()}
             )
+
+        # Logo URLs
+        if self.getImage_1_link():
+            extra['logo_1_url'] = self.getImage_1_link()
+
+        if self.getImage_2_link():
+            extra['logo_2_url'] = self.getImage_2_link()
+
+        # PDF Template
+        if self.getPdf_generator_template():
+            extra['pdf_xslt_url'] = self.getPdf_generator_template()
 
 
         try:
