@@ -4,7 +4,8 @@ Changelog
 1.0b7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add a default value for recipient name field.
+  [erral]
 
 
 1.0b6 (2018-04-27)
