@@ -675,43 +675,42 @@ class MiPagoAdapter(FormMailerAdapter):
                 {'eu': self.getMessage_top_description_basque()}
             )
 
-
-        if self.getCitizen_name():
+        if self.getCitizen_name() != '#NONE#':
             field_name = self.getCitizen_name()
             extra['citizen_name'] = REQUEST.get(field_name)
-        if self.getCitizen_surname1():
+        if self.getCitizen_surname1() != '#NONE#':
             field_name = self.getCitizen_surname1()
             extra['citizen_surname_1'] = REQUEST.get(field_name)
-        if self.getCitizen_surname2():
+        if self.getCitizen_surname2() != '#NONE#':
             field_name = self.getCitizen_surname2()
             extra['citizen_surname_2'] = REQUEST.get(field_name)
-        if self.getCitizen_nif():
+        if self.getCitizen_nif() != '#NONE#':
             field_name = self.getCitizen_nif()
             extra['citizen_nif'] = REQUEST.get(field_name)
-        if self.getCitizen_address():
+        if self.getCitizen_address() != '#NONE#':
             field_name = self.getCitizen_address()
             extra['citizen_address'] = REQUEST.get(field_name)
-        if self.getCitizen_city():
+        if self.getCitizen_city() != '#NONE#':
             field_name = self.getCitizen_city()
             extra['citizen_city'] = REQUEST.get(field_name)
-        if self.getCitizen_postal_code():
+        if self.getCitizen_postal_code() != '#NONE#':
             field_name = self.getCitizen_postal_code()
             extra['citizen_postal_code'] = REQUEST.get(field_name)
-        if self.getCitizen_territory():
+        if self.getCitizen_territory() != '#NONE#':
             field_name = self.getCitizen_territory()
             extra['citizen_territory'] = REQUEST.get(field_name)
-        if self.getCitizen_country():
+        if self.getCitizen_country() != '#NONE#':
             field_name = self.getCitizen_country()
             extra['citizen_country'] = REQUEST.get(field_name)
-        if self.getCitizen_phone():
+        if self.getCitizen_phone() != '#NONE#':
             field_name = self.getCitizen_phone()
             extra['citizen_phone'] = REQUEST.get(field_name)
-        if self.getCitizen_email():
+        if self.getCitizen_email() != '#NONE#':
             field_name = self.getCitizen_email()
             extra['citizen_email'] = REQUEST.get(field_name)
 
 
-        if self.getMipago_payment_description_es():
+        if self.getMipago_payment_description_es() != '#NONE#':
             if 'mipago_payment_description' not in extra:
                 extra['mipago_payment_description'] = {}
 
@@ -719,7 +718,7 @@ class MiPagoAdapter(FormMailerAdapter):
                 {'es': self.getMipago_payment_description_es()}
             )
 
-        if self.getMipago_payment_description_eu():
+        if self.getMipago_payment_description_eu() != '#NONE#':
             if 'mipago_payment_description' not in extra:
                 extra['mipago_payment_description'] = {}
 
