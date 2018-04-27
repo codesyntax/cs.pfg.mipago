@@ -649,7 +649,6 @@ class MiPagoAdapter(FormMailerAdapter):
         language = self.getMipago_screen_language()
         return_url = self.absolute_url() + '/payment_end'
         payment_modes = self.getMipago_payment_modes()
-        payment_period = self.getMipago_payment_limit_date()
         period_date = self.getMipago_payment_limit_date().asdatetime().date()
         extra = {}
 
