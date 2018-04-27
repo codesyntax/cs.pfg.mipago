@@ -539,6 +539,7 @@ MiPagoAdapterSchema['bccOverride'].widget.visible = {'view': 'invisible', 'edit'
 MiPagoAdapterSchema['cc_recipients'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['ccOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['gpg_keyid'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['recipient_name'].default = ''
 MiPagoAdapterSchema['recipient_name'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['recipientOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['replyto_field'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
