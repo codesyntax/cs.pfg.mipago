@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b6 (unreleased)
+1.0b6 (2018-04-27)
 ------------------
 
 - Add options to send the PDF template
