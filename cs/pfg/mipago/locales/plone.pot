@@ -18,3 +18,15 @@ msgstr ""
 
 msgid "Manage payments"
 msgstr ""
+
+msgid "label_schema_overrides"
+msgstr ""
+
+msgid "label_schema_citizendata"
+msgstr ""
+
+msgid "label_schema_messages"
+msgstr ""
+
+msgid "label_schema_email"
+msgstr ""

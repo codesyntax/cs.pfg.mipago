@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-04-25 14:17+0000\n"
-"PO-Revision-Date: 2018-04-25 16:18+0200\n"
+"POT-Creation-Date: 2018-04-27 08:49+0000\n"
+"PO-Revision-Date: 2018-04-27 10:54+0200\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,14 @@ msgstr ""
 "Domain: DOMAIN\n"
 "Language: es\n"
 "X-Generator: Poedit 1.8.7.1\n"
+
+#: content/mipagoadapter.py:476
+msgid "1st image shown in the payment documents"
+msgstr "1ª imagen que se muestra en los documentos de pago"
+
+#: content/mipagoadapter.py:488
+msgid "2nd image shown in the payment documents"
+msgstr "2ª imagen que se muestra en los documentos de pago"
 
 #: content/mipagoadapter.py:88
 msgid "502: Notebook 60, modality 1, short format"
@@ -48,6 +56,18 @@ msgstr "9052180: cuaderno 60, modalidad 2"
 msgid "Adapter for payments with MiPago"
 msgstr "Acción para hacer pagos con MiPago"
 
+#: content/mipagoadapter.py:477
+msgid "Add the URL of the 1st image shown in the payment documents. You will need to send it to the Payment Service Administrators and get the URL from them."
+msgstr "Añada la URL de la 1ª imagen que se muestra en los documentos de pago. Necesitará enviar esta imagen al Servicio de Pagos y obtener la URL de ellos."
+
+#: content/mipagoadapter.py:489
+msgid "Add the URL of the 2nd image shown in the payment documents. You will need to send it to the Payment Service Administrators and get the URL from them."
+msgstr "Añada la URL de la 2ª imagen que se muestra en los documentos de pago. Necesitará enviar esta imagen al Servicio de Pagos y obtener la URL de ellos."
+
+#: content/mipagoadapter.py:501
+msgid "Add the URL of the XSLT template that renders the PDF file. You will hardly need to change this. Contact the Payment Service Administrators for more information."
+msgstr "Añada la URL la plantilla XSLT que genera los archivos PDF. Seguramente no necesitará cambiar esta URL.Contacte con el Servicio de Pagos para obtener más detalles."
+
 #: content/mipagoadapter.py:205
 msgid "All payments will have consecutive numbers, enter here the value of the first."
 msgstr "Los pagos tienen números de referencia consecutivos, introduzca el primer número de referencia aquí"
@@ -56,7 +76,7 @@ msgstr "Los pagos tienen números de referencia consecutivos, introduzca el prim
 msgid "Amount"
 msgstr "Cantidad"
 
-#: content/mipagoadapter.py:489
+#: content/mipagoadapter.py:526
 msgid "Amount calculation script"
 msgstr "Script para el cálculo de la cantidad"
 
@@ -64,11 +84,11 @@ msgstr "Script para el cálculo de la cantidad"
 msgid "Check if the payments should be made on the TEST platform"
 msgstr "¿Se debe realizar el pago en la plataforma de PRUEBAS?"
 
-#: content/mipagoadapter.py:475
+#: content/mipagoadapter.py:512
 msgid "Check if you need to calculate the amount using a python script"
 msgstr "Seleccionar si se quiere calcular la cantidad en vez de utilizar el valor del campo \"Cantidad\""
 
-#: content/mipagoadapter.py:510
+#: content/mipagoadapter.py:554
 msgid "Choose a form field from which you wish to extract input for the To header. If you choose anything other than \"None\", the user will not receive any email. Be very cautious about allowing unguarded user input for this purpose."
 msgstr "Seleccione en qué campo de los presentados aquí contiene el e-mail del usuario al que se enviará el email. Si selecciona \"Ninguno\", el usuario no recibirá ningún e-mail. Atencion: debería configurar el campo para que se valide y se verifique que sea una direccion de e-mail válida."
 
@@ -172,7 +192,7 @@ msgstr "Introduzca el código del emisor del pago"
 msgid "Enter the suffix of this payment"
 msgstr "Introduzca el código del sufijo del pago"
 
-#: content/mipagoadapter.py:509
+#: content/mipagoadapter.py:553
 msgid "Extract Recipient From"
 msgstr "Campo del receptor del e-mail"
 
@@ -232,6 +252,10 @@ msgstr "Sobreescribir el título del pago (euskara)"
 msgid "Override the value of the payment title in spanish"
 msgstr "Sobreescribir el título del pago (español)"
 
+#: content/mipagoadapter.py:500
+msgid "PDF generator template"
+msgstr "Plantilla XSLT que genera el PDF"
+
 #: browser/manage.py:45
 msgid "Payment NOT completed"
 msgstr "Pago NO completado"
@@ -260,7 +284,7 @@ msgstr "Adaptador de PloneFormGen para realizar pagos con el servicio Mi Pago de
 msgid "Reference number"
 msgstr "Número de referncia"
 
-#: content/mipagoadapter.py:765
+#: content/mipagoadapter.py:820
 msgid "Reference number is bigger than 10 digits. Please delete old reference numbers"
 msgstr "El número de referencia tiene más de 10 dígitos. Elimine por favor los pagos antiguos"
 
@@ -324,7 +348,7 @@ msgstr "Estado"
 msgid "There are no payments yet."
 msgstr "No hay pagos."
 
-#: content/mipagoadapter.py:743
+#: content/mipagoadapter.py:798
 msgid "There was an error processing the payment. Please try again"
 msgstr "Ha ocurrido un error al realizar el pago. Inténtelo otra vez por favor"
 
@@ -352,7 +376,7 @@ msgstr "Introduzca aquí el texto que sobreescribirá en el archivo PDF el valor
 msgid "Write here the basque text that will override the value shown on the header of the PDF file"
 msgstr "Introduzca aquí el texto que sobreescribirá en el archivo PDF la cabecera por defecto (euskara)"
 
-#: content/mipagoadapter.py:492
+#: content/mipagoadapter.py:529
 msgid "Write here the script that calculates the amount"
 msgstr "Escriba aquí el script que calculará la cantidad a pagar"
 

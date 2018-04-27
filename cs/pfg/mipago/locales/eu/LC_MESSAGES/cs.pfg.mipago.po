@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-04-25 14:17+0000\n"
-"PO-Revision-Date: 2018-04-25 16:19+0200\n"
+"POT-Creation-Date: 2018-04-27 08:49+0000\n"
+"PO-Revision-Date: 2018-04-27 10:56+0200\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,14 @@ msgstr ""
 "Domain: DOMAIN\n"
 "Language: eu\n"
 "X-Generator: Poedit 1.8.7.1\n"
+
+#: content/mipagoadapter.py:476
+msgid "1st image shown in the payment documents"
+msgstr "Ordainketa dokumentuaren 1. irudia"
+
+#: content/mipagoadapter.py:488
+msgid "2nd image shown in the payment documents"
+msgstr "Ordainketa dokumentuaren 2. irudia"
 
 #: content/mipagoadapter.py:88
 msgid "502: Notebook 60, modality 1, short format"
@@ -48,6 +56,18 @@ msgstr "9052180: 60 koadernoa, 2 modalitatea"
 msgid "Adapter for payments with MiPago"
 msgstr "Nire Ordainketa zerbitzuarekin ordainketak egiteko ekintza"
 
+#: content/mipagoadapter.py:477
+msgid "Add the URL of the 1st image shown in the payment documents. You will need to send it to the Payment Service Administrators and get the URL from them."
+msgstr "Idatzi hemen ordainketa dokumentuan agertzen den 1. irudiaren URL helbidea. Irudia Ordainketa Zerbitzuaren kudeatzaileei bidali beharko diezu eta haiek emandako helbidea hemen sartu."
+
+#: content/mipagoadapter.py:489
+msgid "Add the URL of the 2nd image shown in the payment documents. You will need to send it to the Payment Service Administrators and get the URL from them."
+msgstr "Idatzi hemen ordainketa dokumentuan agertzen den 2. irudiaren URL helbidea. Irudia Ordainketa Zerbitzuaren kudeatzaileei bidali beharko diezu eta haiek emandako helbidea hemen sartu."
+
+#: content/mipagoadapter.py:501
+msgid "Add the URL of the XSLT template that renders the PDF file. You will hardly need to change this. Contact the Payment Service Administrators for more information."
+msgstr "Idatzi hemen ordainketa dokumentuaren PDF fitxategia sortzen duen XSLT txantiloiaren URL helbidea. Normalean ez duzu hemen ezer idatzi beharrik izango. Jarri kontaktuan Ordainketa Zerbitzuarekin informazio gehiago lortzeko."
+
 #: content/mipagoadapter.py:205
 msgid "All payments will have consecutive numbers, enter here the value of the first."
 msgstr "Ordainketa guztiek jarraian dauden erreferentzia zenbakia edukiko dut, sartu hemen kontaketa hasteko lehenengo zenbakia."
@@ -56,7 +76,7 @@ msgstr "Ordainketa guztiek jarraian dauden erreferentzia zenbakia edukiko dut, s
 msgid "Amount"
 msgstr "Kopurua"
 
-#: content/mipagoadapter.py:489
+#: content/mipagoadapter.py:526
 msgid "Amount calculation script"
 msgstr "Kopuruaren kalkulurako scripta"
 
@@ -64,11 +84,11 @@ msgstr "Kopuruaren kalkulurako scripta"
 msgid "Check if the payments should be made on the TEST platform"
 msgstr "Ordainketa PROBAKO plataforman egin behar da?"
 
-#: content/mipagoadapter.py:475
+#: content/mipagoadapter.py:512
 msgid "Check if you need to calculate the amount using a python script"
 msgstr "Aukeratu ordainketaren kopurua python script bat erabiliz kalkulatu behar bada"
 
-#: content/mipagoadapter.py:510
+#: content/mipagoadapter.py:554
 msgid "Choose a form field from which you wish to extract input for the To header. If you choose anything other than \"None\", the user will not receive any email. Be very cautious about allowing unguarded user input for this purpose."
 msgstr "Aukeratu formularioko zein eremutan dagoen jasotzailearen eposta. \"Bat ere ez\" aukeratzen baduzu ez zaio epostarik bidaliko. Oharra: eremu hori eposta dela ziurtatzeko eposta balidadorea aktibatu beharko zenuke."
 
@@ -172,7 +192,7 @@ msgstr "Ordainketa jasoko duenaren kodea sartu"
 msgid "Enter the suffix of this payment"
 msgstr "Ordainketaren atzizkia sartu"
 
-#: content/mipagoadapter.py:509
+#: content/mipagoadapter.py:553
 msgid "Extract Recipient From"
 msgstr "Jasotzailearen eposta"
 
@@ -232,6 +252,10 @@ msgstr "Ordainketaren agiriaren izenburua gainidatzi (euskaraz)"
 msgid "Override the value of the payment title in spanish"
 msgstr "Ordainketaren agiriaren izenburua gainidatzi (gaztelaniaz)"
 
+#: content/mipagoadapter.py:500
+msgid "PDF generator template"
+msgstr "PDF sortzailearen XSLT txantiloia"
+
 #: browser/manage.py:45
 msgid "Payment NOT completed"
 msgstr "Ordainketa EZ DA gauzatu"
@@ -260,7 +284,7 @@ msgstr "PloneFormGenerako ekintza, Eusko Jaurlaritzaren Nire Ordainketa zerbitzu
 msgid "Reference number"
 msgstr "Erreferentzia zenbakia"
 
-#: content/mipagoadapter.py:765
+#: content/mipagoadapter.py:820
 msgid "Reference number is bigger than 10 digits. Please delete old reference numbers"
 msgstr "Erreferentzia zenbakiak 10 zenbaki baino gehiago ditu. "
 
@@ -324,7 +348,7 @@ msgstr "Egoera"
 msgid "There are no payments yet."
 msgstr "Ez dago ordainketarik."
 
-#: content/mipagoadapter.py:743
+#: content/mipagoadapter.py:798
 msgid "There was an error processing the payment. Please try again"
 msgstr "Errorea gertatu da ordainketa egiterakoan. Saiatu berriz mesedez."
 
@@ -352,7 +376,7 @@ msgstr "Idatzi hemen ordainketa zerbitzutik datorren eta ordainketa agirian ager
 msgid "Write here the basque text that will override the value shown on the header of the PDF file"
 msgstr "Idatzi hemen ordainketa zerbitzutik datorren eta ordainketa agirian agertuko den goiburuko testua gainidazteko testua (euskaraz)"
 
-#: content/mipagoadapter.py:492
+#: content/mipagoadapter.py:529
 msgid "Write here the script that calculates the amount"
 msgstr "Idatzi hemen ordainketaren kopurua kalkulatuko duen scripta"
 
@@ -374,4 +398,4 @@ msgstr "cs.pfg.mipago"
 
 #: configure.zcml:31
 msgid "cs.pfg.mipago (uninstall)"
-msgstr "cs.pfg.mipago (lendu)"
+msgstr "cs.pfg.mipago (kendu)"
