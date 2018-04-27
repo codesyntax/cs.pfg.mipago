@@ -466,6 +466,43 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
             ),
         ),
 
+
+    atapi.StringField(
+        'image_1_link',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        widget=atapi.StringWidget(
+            label=_(u'1st image shown in the payment documents'),
+            description=_(u"Add the URL of the 1st image shown in the payment documents. You will need to send it to the Payment Service Administrators and get the URL from them."),
+            size=50,
+            ),
+    ),
+
+    atapi.StringField(
+        'image_2_link',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        widget=atapi.StringWidget(
+            label=_(u'2nd image shown in the payment documents'),
+            description=_(u"Add the URL of the 2nd image shown in the payment documents. You will need to send it to the Payment Service Administrators and get the URL from them."),
+            size=50,
+            ),
+    ),
+
+    atapi.StringField(
+        'pdf_generator_template',
+        schemata='messages',
+        searchable=0,
+        required=0,
+        widget=atapi.StringWidget(
+            label=_(u'PDF generator template'),
+            description=_(u"Add the URL of the XSLT template that renders the PDF file. You will hardly need to change this. Contact the Payment Service Administrators for more information."),
+            size=50,
+            ),
+    ),
+
     atapi.BooleanField(
         'mipago_use_amountOverride',
         schemata='overrides',
@@ -497,12 +534,18 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
 # Hide unneeded fields coming from formMailerAdapter
 MiPagoAdapterSchema['additional_headers'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['bcc_recipients'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['bccOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['cc_recipients'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['ccOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['gpg_keyid'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['recipient_name'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['recipientOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['replyto_field'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['senderOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['subject_field'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+MiPagoAdapterSchema['subjectOverride'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 MiPagoAdapterSchema['xinfo_headers'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
-MiPagoAdapterSchema['cc_recipients'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
-MiPagoAdapterSchema['bcc_recipients'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 
 
 # Change some labels and descriptions
@@ -606,7 +649,6 @@ class MiPagoAdapter(FormMailerAdapter):
         language = self.getMipago_screen_language()
         return_url = self.absolute_url() + '/payment_end'
         payment_modes = self.getMipago_payment_modes()
-        payment_period = self.getMipago_payment_limit_date()
         period_date = self.getMipago_payment_limit_date().asdatetime().date()
         extra = {}
 
@@ -669,43 +711,44 @@ class MiPagoAdapter(FormMailerAdapter):
                 {'eu': self.getMessage_top_description_basque()}
             )
 
-
-        if self.getCitizen_name():
+        # Citizen data
+        if self.getCitizen_name() != '#NONE#':
             field_name = self.getCitizen_name()
             extra['citizen_name'] = REQUEST.get(field_name)
-        if self.getCitizen_surname1():
+        if self.getCitizen_surname1() != '#NONE#':
             field_name = self.getCitizen_surname1()
             extra['citizen_surname_1'] = REQUEST.get(field_name)
-        if self.getCitizen_surname2():
+        if self.getCitizen_surname2() != '#NONE#':
             field_name = self.getCitizen_surname2()
             extra['citizen_surname_2'] = REQUEST.get(field_name)
-        if self.getCitizen_nif():
+        if self.getCitizen_nif() != '#NONE#':
             field_name = self.getCitizen_nif()
             extra['citizen_nif'] = REQUEST.get(field_name)
-        if self.getCitizen_address():
+        if self.getCitizen_address() != '#NONE#':
             field_name = self.getCitizen_address()
             extra['citizen_address'] = REQUEST.get(field_name)
-        if self.getCitizen_city():
+        if self.getCitizen_city() != '#NONE#':
             field_name = self.getCitizen_city()
             extra['citizen_city'] = REQUEST.get(field_name)
-        if self.getCitizen_postal_code():
+        if self.getCitizen_postal_code() != '#NONE#':
             field_name = self.getCitizen_postal_code()
             extra['citizen_postal_code'] = REQUEST.get(field_name)
-        if self.getCitizen_territory():
+        if self.getCitizen_territory() != '#NONE#':
             field_name = self.getCitizen_territory()
             extra['citizen_territory'] = REQUEST.get(field_name)
-        if self.getCitizen_country():
+        if self.getCitizen_country() != '#NONE#':
             field_name = self.getCitizen_country()
             extra['citizen_country'] = REQUEST.get(field_name)
-        if self.getCitizen_phone():
+        if self.getCitizen_phone() != '#NONE#':
             field_name = self.getCitizen_phone()
             extra['citizen_phone'] = REQUEST.get(field_name)
-        if self.getCitizen_email():
+        if self.getCitizen_email() != '#NONE#':
             field_name = self.getCitizen_email()
             extra['citizen_email'] = REQUEST.get(field_name)
 
 
-        if self.getMipago_payment_description_es():
+        # Payment concept / description
+        if self.getMipago_payment_description_es() != '#NONE#':
             if 'mipago_payment_description' not in extra:
                 extra['mipago_payment_description'] = {}
 
@@ -713,13 +756,24 @@ class MiPagoAdapter(FormMailerAdapter):
                 {'es': self.getMipago_payment_description_es()}
             )
 
-        if self.getMipago_payment_description_eu():
+        if self.getMipago_payment_description_eu() != '#NONE#':
             if 'mipago_payment_description' not in extra:
                 extra['mipago_payment_description'] = {}
 
             extra['mipago_payment_description'].update(
                 {'eu': self.getMipago_payment_description_eu()}
             )
+
+        # Logo URLs
+        if self.getImage_1_link():
+            extra['logo_1_url'] = self.getImage_1_link()
+
+        if self.getImage_2_link():
+            extra['logo_2_url'] = self.getImage_2_link()
+
+        # PDF Template
+        if self.getPdf_generator_template():
+            extra['pdf_xslt_url'] = self.getPdf_generator_template()
 
 
         try:
