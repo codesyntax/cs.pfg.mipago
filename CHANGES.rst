@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b8 (unreleased)
+1.0b8 (2018-04-27)
 ------------------
 
 - Document newest options.
