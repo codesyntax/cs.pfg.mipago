@@ -810,7 +810,7 @@ class MiPagoAdapter(FormMailerAdapter):
 
         myamount = str(amount)
         whole, decimals = myamount.split('.')
-        return '{}{:0>2}'.format(whole, decimals)
+        return '{}{:0<2}'.format(whole, decimals)
 
     def get_reference_number(self):
         last_reference_number = self.get_last_reference_number()
