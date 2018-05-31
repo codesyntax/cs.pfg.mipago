@@ -4,7 +4,8 @@ Changelog
 1.0b9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix value formatting 
+  [erral]
 
 
 1.0b8 (2018-04-27)
