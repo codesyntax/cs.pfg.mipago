@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b9 (unreleased)
+1.0b9 (2018-05-31)
 ------------------
 
 - Fix value formatting 
