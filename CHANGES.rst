@@ -4,8 +4,8 @@ Changelog
 1.0b12 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Fix status
+  [erral]
 
 1.0b11 (2018-06-01)
 -------------------
