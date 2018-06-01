@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
 from cs.pfg.mipago.config import ANNOTATION_KEY
 from cs.pfg.mipago.config import PAYMENT_STATUS_PAYED
+from cs.pfg.mipago.config import PAYMENT_STATUS_SENT_TO_MIPAGO
+from cs.pfg.mipago.config import PAYMENT_STATUS_ERROR_IN_MIPAGO
+from cs.pfg.mipago.config import PAYMENT_STATUS_USER_IN_MIPAGO
+from plone.protect.interfaces import IDisableCSRFProtection
 from Products.Five.browser import BrowserView
 from zope.annotation.interfaces import IAnnotations
-from plone.protect.interfaces import IDisableCSRFProtection
 from zope.interface import alsoProvides
+
+import xml.etree.ElementTree as ET
+
 
 class PaymentConfirmation(BrowserView):
     def __call__(self):
@@ -26,8 +32,27 @@ class PaymentConfirmation(BrowserView):
         log.info('####### extract_payment_code ###########')
         log.info(self.request.items())
         log.info('####### /extract_payment_code ###########')
+
+        param = self.request.get('param1', '')
+        return self._parse_param(param)
+
+
+    def _parse_param(self, param):
+        root = ET.fromstring(param)
+        id_item = root.find('.//id')
+        if id_item is not None:
+            return id_item.text
+
         return ''
 
     def extract_payment_status(self):
         # inspect self.request
+        function = self.request.get('function', '')
+        if function == 'onBeginPayment':
+            return PAYMENT_STATUS_USER_IN_PAGO
+        elif function == 'onPayONLineOK':
+            return PAYMENT_STATUS_PAYED
+        elif function == 'onPayONLineNOK'
+            return PAYMENT_STATUS_ERROR_IN_MIPAGO
+
         return ''
