@@ -2,9 +2,11 @@
 from copy import deepcopy
 from cs.pfg.mipago import mipagoMessageFactory as _
 from cs.pfg.mipago.config import ANNOTATION_KEY
+from cs.pfg.mipago.config import PAYMENT_STATUS_ERROR_IN_MIPAGO
 from cs.pfg.mipago.config import PAYMENT_STATUS_PAYED
 from cs.pfg.mipago.config import PAYMENT_STATUS_SENT_TO_MIPAGO
 from cs.pfg.mipago.config import PAYMENT_STATUS_UNPAYED
+from cs.pfg.mipago.config import PAYMENT_STATUS_USER_IN_MIPAGO
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from zope.annotation.interfaces import IAnnotations
@@ -43,6 +45,12 @@ class ManagePayments(BrowserView):
             return translate(_(u'Payment completed successfuly'))
         elif value == PAYMENT_STATUS_UNPAYED:
             return translate(_(u'Payment NOT completed'))
+        elif value == PAYMENT_STATUS_USER_IN_MIPAGO:
+            return translate(_(u'User reached Mi Pago'))
+        elif value == PAYMENT_STATUS_ERROR_IN_MIPAGO:
+            return translate(_(u'There was an error during the payment in Mi Pago'))
+
+
 
         return translate(_(u'Unkown status'))
 
