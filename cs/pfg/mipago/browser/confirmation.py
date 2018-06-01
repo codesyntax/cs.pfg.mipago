@@ -49,7 +49,7 @@ class PaymentConfirmation(BrowserView):
         # inspect self.request
         function = self.request.get('function', '')
         if function == 'onBeginPayment':
-            return PAYMENT_STATUS_USER_IN_PAGO
+            return PAYMENT_STATUS_USER_IN_MIPAGO
         elif function == 'onPayONLineOK':
             return PAYMENT_STATUS_PAYED
         elif function == 'onPayONLineNOK':
