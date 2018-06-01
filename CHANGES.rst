@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b10 (unreleased)
+1.0b10 (2018-06-01)
 -------------------
 
 - Handle payment confirmation messages
