@@ -3,10 +3,12 @@ from cs.pfg.mipago.config import ANNOTATION_KEY
 from cs.pfg.mipago.config import PAYMENT_STATUS_PAYED
 from Products.Five.browser import BrowserView
 from zope.annotation.interfaces import IAnnotations
-
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
 
 class PaymentConfirmation(BrowserView):
     def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
         adapted = IAnnotations(self.context)
         payment_code = self.extract_payment_code()
         payment_status = self.extract_payment_status()

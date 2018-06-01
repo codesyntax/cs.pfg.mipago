@@ -4,8 +4,8 @@ Changelog
 1.0b10 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Disable CSRF protection for payment confirmation url 
+  [erral]
 
 1.0b9 (2018-05-31)
 ------------------
