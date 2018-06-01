@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b11 (unreleased)
+1.0b11 (2018-06-01)
 -------------------
 
 - Fix Syntax error
