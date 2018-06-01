@@ -52,7 +52,7 @@ class PaymentConfirmation(BrowserView):
             return PAYMENT_STATUS_USER_IN_PAGO
         elif function == 'onPayONLineOK':
             return PAYMENT_STATUS_PAYED
-        elif function == 'onPayONLineNOK'
+        elif function == 'onPayONLineNOK':
             return PAYMENT_STATUS_ERROR_IN_MIPAGO
 
         return ''
