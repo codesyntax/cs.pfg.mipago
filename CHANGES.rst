@@ -4,7 +4,8 @@ Changelog
 1.0b11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix Syntax error
+  [erral]
 
 
 1.0b10 (2018-06-01)
