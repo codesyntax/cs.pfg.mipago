@@ -4,6 +4,10 @@ Changelog
 1.0b10 (unreleased)
 -------------------
 
+- Handle payment confirmation messages
+  [erral]
+
+
 - Disable CSRF protection for payment confirmation url 
   [erral]
 
