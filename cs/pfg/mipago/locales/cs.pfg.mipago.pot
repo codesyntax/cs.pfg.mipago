@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-04-27 08:49+0000\n"
+"POT-Creation-Date: 2018-06-01 10:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,7 +206,7 @@ msgstr ""
 msgid "MiPagoAdapter"
 msgstr ""
 
-#: ./browser/manage.py:81
+#: ./browser/manage.py:89
 msgid "Nothing was deleted"
 msgstr ""
 
@@ -254,7 +254,7 @@ msgstr ""
 msgid "PDF generator template"
 msgstr ""
 
-#: ./browser/manage.py:45
+#: ./browser/manage.py:47
 msgid "Payment NOT completed"
 msgstr ""
 
@@ -266,11 +266,11 @@ msgstr ""
 msgid "Payment code number"
 msgstr ""
 
-#: ./browser/manage.py:43
+#: ./browser/manage.py:45
 msgid "Payment completed successfuly"
 msgstr ""
 
-#: ./browser/manage.py:79
+#: ./browser/manage.py:87
 msgid "Payments were deleted"
 msgstr ""
 
@@ -346,6 +346,10 @@ msgstr ""
 msgid "There are no payments yet."
 msgstr ""
 
+#: ./browser/manage.py:51
+msgid "There was an error during the payment in Mi Pago"
+msgstr ""
+
 #: ./content/mipagoadapter.py:798
 msgid "There was an error processing the payment. Please try again"
 msgstr ""
@@ -354,11 +358,15 @@ msgstr ""
 msgid "Uninstalls the cs.pfg.mipago add-on."
 msgstr ""
 
-#: ./browser/manage.py:47
+#: ./browser/manage.py:55
 msgid "Unkown status"
 msgstr ""
 
-#: ./browser/manage.py:41
+#: ./browser/manage.py:49
+msgid "User reached Mi Pago"
+msgstr ""
+
+#: ./browser/manage.py:43
 msgid "User redirected to MiPago"
 msgstr ""
 

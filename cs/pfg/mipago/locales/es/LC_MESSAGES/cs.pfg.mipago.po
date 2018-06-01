@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-04-27 08:49+0000\n"
-"PO-Revision-Date: 2018-04-27 10:54+0200\n"
+"POT-Creation-Date: 2018-06-01 10:47+0000\n"
+"PO-Revision-Date: 2018-06-01 12:48+0200\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 "Language: es\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: content/mipagoadapter.py:476
 msgid "1st image shown in the payment documents"
@@ -208,7 +208,7 @@ msgstr "Gestionar Pagos"
 msgid "MiPagoAdapter"
 msgstr "Adaptador MiPago"
 
-#: browser/manage.py:81
+#: browser/manage.py:89
 msgid "Nothing was deleted"
 msgstr "No se ha eliminado nada"
 
@@ -256,7 +256,7 @@ msgstr "Sobreescribir el título del pago (español)"
 msgid "PDF generator template"
 msgstr "Plantilla XSLT que genera el PDF"
 
-#: browser/manage.py:45
+#: browser/manage.py:47
 msgid "Payment NOT completed"
 msgstr "Pago NO completado"
 
@@ -268,11 +268,11 @@ msgstr "Código del pago"
 msgid "Payment code number"
 msgstr "Código de pago"
 
-#: browser/manage.py:43
+#: browser/manage.py:45
 msgid "Payment completed successfuly"
 msgstr "Pago correcto"
 
-#: browser/manage.py:79
+#: browser/manage.py:87
 msgid "Payments were deleted"
 msgstr "Los pagos se han eliminado correctamente"
 
@@ -348,6 +348,10 @@ msgstr "Estado"
 msgid "There are no payments yet."
 msgstr "No hay pagos."
 
+#: browser/manage.py:51
+msgid "There was an error during the payment in Mi Pago"
+msgstr "Error al completar el pago en Mi Pago"
+
 #: content/mipagoadapter.py:798
 msgid "There was an error processing the payment. Please try again"
 msgstr "Ha ocurrido un error al realizar el pago. Inténtelo otra vez por favor"
@@ -356,11 +360,15 @@ msgstr "Ha ocurrido un error al realizar el pago. Inténtelo otra vez por favor"
 msgid "Uninstalls the cs.pfg.mipago add-on."
 msgstr "Desinstalar cs.pfg.mipago"
 
-#: browser/manage.py:47
+#: browser/manage.py:55
 msgid "Unkown status"
 msgstr "Estado desconocido"
 
-#: browser/manage.py:41
+#: browser/manage.py:49
+msgid "User reached Mi Pago"
+msgstr "El usuario ha llegado a Mi Pago"
+
+#: browser/manage.py:43
 msgid "User redirected to MiPago"
 msgstr "Usuario redirigido a Mi Pago"
 
