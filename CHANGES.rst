@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b14 (unreleased)
+1.0b14 (2018-06-04)
 -------------------
 
 - Fix data export.
