@@ -91,7 +91,7 @@
           </tbody>
         </table>
 
-        <button type="button" id="select-all">Select all</button>
+        <button type="button" id="select-all" i18n:translate="">Select all</button>
 
         <button type="submit" class="destructive" for="delete_payments" i18n:translate="">Delete selected payments</button>
 
