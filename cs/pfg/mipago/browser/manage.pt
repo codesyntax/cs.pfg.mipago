@@ -7,7 +7,20 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="cs.pfg.mipago">
 
-  <head><title></title></head>
+  <head><title></title>
+
+  <metal:js fill-slot="javascript_head_slot">
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $('#select-all').click(function(){
+          $('#delete-form input[type=checkbox]').prop('checked', true);
+        });
+
+      });
+    </script>
+  </metal:js>
+  </head>
 
   <body>
     <metal:fill fill-slot="main">
@@ -22,6 +35,7 @@
 
       <form tal:attributes="action string:${here/absolute_url}/delete_payments"
           method="post"
+          id="delete-form"
           tal:condition="view/get_payments">
         <table class="listing">
           <thead>
@@ -76,6 +90,8 @@
             </tr>
           </tbody>
         </table>
+
+        <button type="button" id="select-all">Select all</button>
 
         <button type="submit" class="destructive" for="delete_payments" i18n:translate="">Delete selected payments</button>
 
