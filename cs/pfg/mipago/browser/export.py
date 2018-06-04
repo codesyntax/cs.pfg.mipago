@@ -48,7 +48,8 @@ class ExportData(BrowserView):
             values.append(items)
 
         data = tablib.Dataset(*values, headers=headers)
-        data.append(items)
+        for value_items in values:
+            data.append(value_items)
 
         dt = DateTime()
         filename = dt.strftime('%Y-%m-%d-%h-%m-%s-{}.xls'.format(context.getId())) # no-qa
