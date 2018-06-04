@@ -15,6 +15,7 @@ from Products.Archetypes.utils import shasattr
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFPlone.utils import safe_hasattr
 from Products.PloneFormGen.config import EDIT_ADDRESSING_PERMISSION
 from Products.PloneFormGen.config import EDIT_ADVANCED_PERMISSION
 from Products.PloneFormGen.config import EDIT_PYTHON_PERMISSION
@@ -844,8 +845,23 @@ class MiPagoAdapter(FormMailerAdapter):
             raise InvalidReferenceNumber(_('Reference number is bigger than 10 digits. Please delete old reference numbers'))
         return value
 
+    def get_annotation_context(self):
+        parent = aq_parent(self)
+        if safe_hasattr(parent, 'isTranslation') and \
+               parent.isTranslation() and not parent.isCanonical():
+            # look in the canonical version to see if there is
+            # a matching (by id) save-data adapter.
+            # If so, call its onSuccess method
+            cf = parent.getCanonical()
+            target = cf.get(self.getId())
+            if target is not None and target.meta_type == 'MiPagoAdapter':
+                return target
+
+        return self
+
     def get_last_reference_number(self):
-        adapted = IAnnotations(self)
+        annotation_context = self.get_annotation_context()
+        adapted = IAnnotations(annotation_context)
         payments = adapted.get(ANNOTATION_KEY, {})
         reference_numbers = []
         for code, data in payments.items():
@@ -859,11 +875,8 @@ class MiPagoAdapter(FormMailerAdapter):
 
 
     def register_payment(self, payment_code, reference_number, amount, fields):
-        try:
-            canonical = self.getCanonical()
-        except:
-            canonical = self
-        adapted = IAnnotations(canonical)
+        annotation_context = self.get_annotation_context()
+        adapted = IAnnotations(annotation_context)
         payments = adapted.get(ANNOTATION_KEY, {})
         payments[payment_code] = {
             'reference_number': reference_number,

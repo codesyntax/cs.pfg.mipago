@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from Acquisition import aq_parent
 from copy import deepcopy
 from cs.pfg.mipago import mipagoMessageFactory as _
 from cs.pfg.mipago.config import ANNOTATION_KEY
@@ -7,6 +8,7 @@ from cs.pfg.mipago.config import PAYMENT_STATUS_PAYED
 from cs.pfg.mipago.config import PAYMENT_STATUS_SENT_TO_MIPAGO
 from cs.pfg.mipago.config import PAYMENT_STATUS_UNPAYED
 from cs.pfg.mipago.config import PAYMENT_STATUS_USER_IN_MIPAGO
+from Products.CMFPlone.utils import safe_hasattr
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from zope.annotation.interfaces import IAnnotations
@@ -19,13 +21,24 @@ import pytz
 
 class ManagePayments(BrowserView):
 
-    def get_payments(self):
-        try:
-            canonical = self.context.getCanonical()
-        except:
-            canonical = self.context
+    def get_annotation_context(self):
+        parent = aq_parent(self.context)
+        if safe_hasattr(parent, 'isTranslation') and \
+               parent.isTranslation() and not parent.isCanonical():
+            # look in the canonical version to see if there is
+            # a matching (by id) save-data adapter.
+            # If so, call its onSuccess method
+            cf = parent.getCanonical()
+            target = cf.get(self.context.getId())
+            if target is not None and target.meta_type == 'MiPagoAdapter':
+                return target
 
-        adapted = IAnnotations(canonical)
+        return self.context
+
+
+    def get_payments(self):
+        annotation_context = self.get_annotation_context()
+        adapted = IAnnotations(annotation_context)
         payments = adapted.get(ANNOTATION_KEY, {})
         results = []
         for payment_code, data in payments.items():
@@ -76,14 +89,26 @@ class ManagePayments(BrowserView):
 
 class DeletePayments(BrowserView):
 
+    def get_annotation_context(self):
+        parent = aq_parent(self.context)
+        if safe_hasattr(parent, 'isTranslation') and \
+               parent.isTranslation() and not parent.isCanonical():
+            # look in the canonical version to see if there is
+            # a matching (by id) save-data adapter.
+            # If so, call its onSuccess method
+            cf = parent.getCanonical()
+            target = cf.get(self.context.getId())
+            if target is not None and target.meta_type == 'MiPagoAdapter':
+                return target
+
+        return self.context
+
+
+
     def __call__(self):
         messages = IStatusMessage(self.request)
-        try:
-            canonical = self.context.getCanonical()
-        except:
-            canonical = self.context
-
-        adapted = IAnnotations(canonical)
+        annotation_context = self.get_annotation_context()
+        adapted = IAnnotations(annotation_context)
         payments = adapted.get(ANNOTATION_KEY, {})
 
         if self.request.get('pcodes', []) is not None:

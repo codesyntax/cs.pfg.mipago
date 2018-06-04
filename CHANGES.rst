@@ -4,7 +4,8 @@ Changelog
 1.0b13 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Do not save on the canonical object, but on the parent's canonical Mi Pago child
+  [erral]
 
 
 1.0b12 (2018-06-04)
@@ -31,13 +32,13 @@ Changelog
   [erral]
 
 
-- Disable CSRF protection for payment confirmation url 
+- Disable CSRF protection for payment confirmation url
   [erral]
 
 1.0b9 (2018-05-31)
 ------------------
 
-- Fix value formatting 
+- Fix value formatting
   [erral]
 
 
