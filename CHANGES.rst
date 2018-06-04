@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b13 (unreleased)
+1.0b13 (2018-06-04)
 -------------------
 
 - Do not save on the canonical object, but on the parent's canonical Mi Pago child
