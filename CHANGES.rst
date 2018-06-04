@@ -4,7 +4,8 @@ Changelog
 1.0b14 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix data export.
+  [erral] 
 
 
 1.0b13 (2018-06-04)
