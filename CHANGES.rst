@@ -4,6 +4,10 @@ Changelog
 1.0b12 (unreleased)
 -------------------
 
+- Save payment data on the canonical objects to avoid duplicity
+  [erral]
+
+
 - Fix status
   [erral]
 
