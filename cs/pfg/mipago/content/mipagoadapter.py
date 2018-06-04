@@ -859,7 +859,11 @@ class MiPagoAdapter(FormMailerAdapter):
 
 
     def register_payment(self, payment_code, reference_number, amount, fields):
-        adapted = IAnnotations(self)
+        try:
+            canonical = self.getCanonical()
+        except:
+            canonical = self
+        adapted = IAnnotations(canonical)
         payments = adapted.get(ANNOTATION_KEY, {})
         payments[payment_code] = {
             'reference_number': reference_number,

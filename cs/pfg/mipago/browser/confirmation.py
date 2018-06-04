@@ -15,7 +15,12 @@ import xml.etree.ElementTree as ET
 class PaymentConfirmation(BrowserView):
     def __call__(self):
         alsoProvides(self.request, IDisableCSRFProtection)
-        adapted = IAnnotations(self.context)
+        try:
+            canonical = self.context.getCanonical()
+        except:
+            canonical = self.context
+
+        adapted = IAnnotations(canonical)
         payment_code = self.extract_payment_code()
         payment_status = self.extract_payment_status()
         payments = adapted.get(ANNOTATION_KEY, {})

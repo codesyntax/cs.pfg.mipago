@@ -20,7 +20,12 @@ import pytz
 class ManagePayments(BrowserView):
 
     def get_payments(self):
-        adapted = IAnnotations(self.context)
+        try:
+            canonical = self.context.getCanonical()
+        except:
+            canonical = self.context
+
+        adapted = IAnnotations(canonical)
         payments = adapted.get(ANNOTATION_KEY, {})
         results = []
         for payment_code, data in payments.items():
@@ -50,8 +55,6 @@ class ManagePayments(BrowserView):
         elif value == PAYMENT_STATUS_ERROR_IN_MIPAGO:
             return translate(_(u'There was an error during the payment in Mi Pago'))
 
-
-
         return translate(_(u'Unkown status'))
 
     def localize_datetime(self, value):
@@ -75,11 +78,16 @@ class DeletePayments(BrowserView):
 
     def __call__(self):
         messages = IStatusMessage(self.request)
-        adapted = IAnnotations(self.context)
+        try:
+            canonical = self.context.getCanonical()
+        except:
+            canonical = self.context
+
+        adapted = IAnnotations(canonical)
         payments = adapted.get(ANNOTATION_KEY, {})
 
         if self.request.get('pcodes', []) is not None:
-            pcodes = self.request.get('pcodes')
+            pcodes = self.request.get('pcodes', [])
             for pcode in pcodes:
                 if pcode in payments:
                     del payments[pcode]
