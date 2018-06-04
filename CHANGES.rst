@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b12 (unreleased)
+1.0b12 (2018-06-04)
 -------------------
 
 - Save payment data on the canonical objects to avoid duplicity
