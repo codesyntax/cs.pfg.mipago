@@ -11,8 +11,6 @@ from cs.pfg.mipago.config import PAYMENT_STATUS_SENT_TO_MIPAGO
 from cs.pfg.mipago.config import PROJECTNAME
 from cs.pfg.mipago.interfaces import IMiPagoAdapter
 from logging import getLogger
-from Products.Archetypes import atapi
-from Products.Archetypes.atapi import DisplayList
 from Products.Archetypes.utils import shasattr
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
@@ -36,6 +34,11 @@ from zope.annotation.interfaces import IAnnotations
 from zope.interface import implements
 
 import datetime
+
+try:
+    from Products.LinguaPlone import public as atapi
+except ImportError:
+    from Products.Archetypes import atapi
 
 log = getLogger(__name__)
 
@@ -69,7 +72,8 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
     # -*- Your Archetypes field definitions here ... -*-
     atapi.StringField(
         'mipago_cpr_code',
-        vocabulary=DisplayList([
+        languageIndependent=True,
+        vocabulary=atapi.DisplayList([
             ('9050299', _(u'9050299: Notebook 60, modality 1')),
             ('9052180', _(u'9052180: Notebook 60, modality 2')),
             ('9050794', _(u'9050794: Notebook 57')),
@@ -84,7 +88,8 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         'mipago_format',
-        vocabulary=DisplayList([
+        languageIndependent=True,
+        vocabulary=atapi.DisplayList([
             ('502', _(u'502: Notebook 60, modality 1, short format')),
             ('521', _(u'521: Notebook 60, modality 2, short format')),
             ('522', _(u'522: Notebook 60, modality 2, long format')),
@@ -100,6 +105,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         'mipago_sender',
+        languageIndependent=True,
         required=True,
         storage=atapi.AnnotationStorage(),
         searchable=False,
@@ -111,6 +117,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.StringField(
         'mipago_suffix',
+        languageIndependent=True,
         required=True,
         storage=atapi.AnnotationStorage(),
         searchable=False,
@@ -121,6 +128,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
     ),
     atapi.DateTimeField(
         'mipago_payment_limit_date',
+        languageIndependent=True,
         required=True,
         storage=atapi.AnnotationStorage(),
         searchable=False,
@@ -135,7 +143,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
         required=True,
         storage=atapi.AnnotationStorage(),
         searchable=False,
-        vocabulary=DisplayList([
+        vocabulary=atapi.DisplayList([
             ('eu', 'Euskara'),
             ('es', 'Español'),
             ('en', 'English'),
@@ -148,10 +156,11 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
     ),
     atapi.LinesField(
         'mipago_payment_modes',
+        languageIndependent=True,
         required=True,
         storage=atapi.AnnotationStorage(),
         searchable=False,
-        vocabulary=DisplayList([
+        vocabulary=atapi.DisplayList([
             ('01', _('Offline payment')),
             ('02', _('Online payment')),
         ]),
@@ -164,6 +173,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.StringField(
         'mipago_payment_description_es',
+        languageIndependent=True,
         required=True,
         storage=atapi.AnnotationStorage(),
         searchable=False,
@@ -175,6 +185,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.StringField(
         'mipago_payment_description_eu',
+        languageIndependent=True,
         required=True,
         storage=atapi.AnnotationStorage(),
         searchable=False,
@@ -186,6 +197,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.FloatField(
         'mipago_payment_amount',
+        languageIndependent=True,
         required=True,
         storage=atapi.AnnotationStorage(),
         searchable=False,
@@ -195,6 +207,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
     ),
     atapi.IntegerField(
         'mipago_reference_number_start',
+        languageIndependent=True,
         required=True,
         storage=atapi.AnnotationStorage(),
         searchable=False,
@@ -350,6 +363,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.TextField(
         'message_top_description_spanish',
+        languageIndependent=True,
         schemata='messages',
         searchable=0,
         required=0,
@@ -364,6 +378,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.TextField(
         'message_top_description_basque',
+        languageIndependent=True,
         schemata='messages',
         searchable=0,
         required=0,
@@ -379,6 +394,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.TextField(
         'message_4_spanish',
+        languageIndependent=True,
         schemata='messages',
         searchable=0,
         required=0,
@@ -393,6 +409,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.TextField(
         'message_4_basque',
+        languageIndependent=True,
         schemata='messages',
         searchable=0,
         required=0,
@@ -408,6 +425,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.TextField(
         'message_2_spanish',
+        languageIndependent=True,
         schemata='messages',
         searchable=0,
         required=0,
@@ -423,6 +441,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.TextField(
         'message_2_basque',
+        languageIndependent=True,
         schemata='messages',
         searchable=0,
         required=0,
@@ -438,6 +457,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.TextField(
         'message_3_spanish',
+        languageIndependent=True,
         schemata='messages',
         searchable=0,
         required=0,
@@ -453,6 +473,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.TextField(
         'message_3_basque',
+        languageIndependent=True,
         schemata='messages',
         searchable=0,
         required=0,
@@ -469,6 +490,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.StringField(
         'image_1_link',
+        languageIndependent=True,
         schemata='messages',
         searchable=0,
         required=0,
@@ -481,6 +503,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.StringField(
         'image_2_link',
+        languageIndependent=True,
         schemata='messages',
         searchable=0,
         required=0,
@@ -493,6 +516,7 @@ MiPagoAdapterSchema = formMailerAdapterSchema.copy() + atapi.Schema((
 
     atapi.StringField(
         'pdf_generator_template',
+        languageIndependent=True,
         schemata='messages',
         searchable=0,
         required=0,
