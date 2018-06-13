@@ -4,7 +4,7 @@ Changelog
 1.0b15 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix data export.
 
 
 1.0b14 (2018-06-04)
