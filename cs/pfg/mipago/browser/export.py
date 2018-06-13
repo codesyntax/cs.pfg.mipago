@@ -5,8 +5,10 @@ from cs.pfg.mipago.config import ANNOTATION_KEY
 from DateTime import DateTime
 from Products.CMFPlone.utils import safe_hasattr
 from Products.Five.browser import BrowserView
+from StringIO import StringIO
 from zope.annotation.interfaces import IAnnotations
 
+import csv
 import tablib
 
 
@@ -33,23 +35,28 @@ class ExportData(BrowserView):
         payments = adapted.get(ANNOTATION_KEY, {})
         headers = ['payment_code', 'reference_number', 'amount', 'datetime', 'status'] # no-qa
         values = []
+        headers = set()
         for payment_code, payment in payments.items():
-            items = []
-            items.append(payment_code)
-            items.append(payment.get('reference_number'))
-            items.append(payment.get('amount'))
-            items.append(payment.get('datetime'))
-            items.append(payment.get('status'))
+            item = {}
+            item['payment_code'] = payment_code
+            item['reference_number'] = payment.get('reference_number')
+            item['amount'] = payment.get('amount')
+            item['datetime'] = payment.get('datetime')
+            item['status'] = payment.get('status')
             for field in payment.get('fields', []):
-                if field.get('id') not in headers:
-                    headers.append(field.get('id'))
-                items.append(field.get('value'))
+                item[field.get('id')] = field.get('value')
 
-            values.append(items)
+            values.append(item)
+            headers = headers.union(item.keys())
 
-        data = tablib.Dataset(*values, headers=headers)
-        for value_items in values:
-            data.append(value_items)
+        st = StringIO()
+        writer = csv.DictWriter(st, fieldnames=list(headers))
+        writer.writeheader()
+        writer.writerows(values)
+
+        data = tablib.Dataset(headers=headers)
+        data.csv = st.getvalue()
+
 
         dt = DateTime()
         filename = dt.strftime('%Y-%m-%d-%h-%m-%s-{}.xls'.format(context.getId())) # no-qa
