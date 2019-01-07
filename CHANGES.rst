@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b17 (unreleased)
+1.0b17 (2019-01-07)
 -------------------
 
 - Send error text in the mail confirmation if an error happens during the payment process.
