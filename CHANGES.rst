@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b16 (unreleased)
+1.0b16 (2019-01-07)
 -------------------
 
 - Send confirmation email when receiving the payment confirmation notification.
