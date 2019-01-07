@@ -4,7 +4,8 @@ Changelog
 1.0b16 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Send confirmation email when receiving the payment confirmation notification.
+  [erral]
 
 
 1.0b15 (2018-06-13)
