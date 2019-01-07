@@ -13,6 +13,7 @@ from Products.Five.browser import BrowserView
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import alsoProvides
 
+import transaction
 import xml.etree.ElementTree as ET
 
 
@@ -39,6 +40,7 @@ class PaymentConfirmation(BrowserView):
         annotation_context = self.get_annotation_context()
         adapted = IAnnotations(annotation_context)
         payment_code = self.extract_payment_code()
+        payment_error_message = self.extract_error_message()
         payment_status = self.extract_payment_status()
         payments = adapted.get(ANNOTATION_KEY, {})
         payment_data = payments.get(payment_code, {})
@@ -47,6 +49,8 @@ class PaymentConfirmation(BrowserView):
         adapted[ANNOTATION_KEY] = payments
         if payment_status == PAYMENT_STATUS_PAYED:
             self.send_form(payment_code)
+        if payment_error_message:
+            self.send_failure_form(payment_code, payment_error_message)
 
         return 1
 
@@ -62,11 +66,34 @@ class PaymentConfirmation(BrowserView):
         param = self.request.get("param1", "")
         return self._parse_param(param)
 
+    def extract_error_message(self):
+        param = self.request.get("param1", "")
+        return self._parse_error(param)
+
     def _parse_param(self, param):
-        root = ET.fromstring(param)
+        value = unicode(param, "latin1").encode("utf-8")
+        root = ET.fromstring(value)
         id_item = root.find(".//id")
         if id_item is not None:
             return id_item.text
+
+        return ""
+
+    def _parse_error(self, param):
+        value = unicode(param, "latin1").encode("utf-8")
+        root = ET.fromstring(value)
+        texto = root.find(".//estado/mensajes/mensaje/texto")
+
+        if texto is not None:
+            es = texto.find(".//es")
+            if es is not None:
+                return es.text.strip()
+
+            eu = texto.find(".//eu")
+            if eu is not None:
+                return eu.text.strip()
+
+            return "There was an error processing the payment"
 
         return ""
 
@@ -94,13 +121,14 @@ class PaymentConfirmation(BrowserView):
 
     def send_form(self, payment_code):
         data = self.get_payment_data(payment_code)
+        form = aq_parent(self.context)
         if data is not None:
             field_data = data.get("fields", [])
             fields = []
             form_data = {}
             for field in field_data:
                 form_data[field["id"]] = field["value"]
-                fields.append(self.form.get(field["id"]))
+                fields.append(form.get(field["id"]))
 
             self.request.form = form_data
 
@@ -113,5 +141,40 @@ class PaymentConfirmation(BrowserView):
             if to_field != "#NONE#":
                 # Mail to form filler
                 self.context.send_form(
-                    fields, self.request, to_addr=form_data[to_field]
+                    fields, self.request, to_addr=form_data.get(to_field, "")
                 )
+
+    def send_failure_form(self, payment_code, payment_error_message):
+        data = self.get_payment_data(payment_code)
+        form = aq_parent(self.context)
+        if data is not None:
+            field_data = data.get("fields", [])
+            fields = []
+            form_data = {}
+            for field in field_data:
+                form_data[field["id"]] = field["value"]
+                fields.append(form.get(field["id"]))
+
+            self.context.setBody_pre(payment_error_message)
+            self.context.setBody_post(payment_error_message)
+
+            transaction.savepoint(1)
+
+            self.request.form = form_data
+
+            # Mail to form owner
+            self.context.send_form(
+                fields, self.request, to_addr=self.context.getRecipient_email()
+            )
+
+            to_field = self.context.getTo_field()
+            if to_field != "#NONE#":
+                # Mail to form filler
+                self.context.send_form(
+                    fields, self.request, to_addr=form_data.get(to_field, "")
+                )
+
+            self.context.setBody_pre("")
+            self.context.setBody_post("")
+
+            transaction.savepoint(1)
