@@ -4,7 +4,8 @@ Changelog
 1.0b17 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Send error text in the mail confirmation if an error happens during the payment process.
+  [erral]
 
 
 1.0b16 (2019-01-07)
