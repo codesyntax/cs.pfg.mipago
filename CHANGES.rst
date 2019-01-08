@@ -4,7 +4,8 @@ Changelog
 1.0b19 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Rework thanks page and confirmation email
+  [erral]t 
 
 
 1.0b18 (2019-01-08)
