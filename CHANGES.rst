@@ -4,7 +4,8 @@ Changelog
 1.0b21 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Translate error message.
+  [erral]
 
 
 1.0b20 (2019-01-08)
