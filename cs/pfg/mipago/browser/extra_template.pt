@@ -1,0 +1,11 @@
+<dt i18n:domain="cs.pfg.mipago" i18n:translate="" tal:omit-tag="">
+  Payment code number
+</dt>
+
+<dd tal:replace="options/reference_number"></dd>
+
+<dt i18n:domain="cs.pfg.mipago" i18n:translate="" tal:omit-tag="">
+  Date and time
+</dt>
+
+<dd tal:replace="options/datetime"></dd>

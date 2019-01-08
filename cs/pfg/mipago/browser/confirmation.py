@@ -7,10 +7,13 @@ from cs.pfg.mipago.config import PAYMENT_STATUS_ERROR_IN_MIPAGO
 from cs.pfg.mipago.config import PAYMENT_STATUS_PAYED
 from cs.pfg.mipago.config import PAYMENT_STATUS_SENT_TO_MIPAGO
 from cs.pfg.mipago.config import PAYMENT_STATUS_USER_IN_MIPAGO
+from DateTime import DateTime
 from plone.protect.interfaces import IDisableCSRFProtection
 from Products.CMFPlone.utils import safe_hasattr
 from Products.Five.browser import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.annotation.interfaces import IAnnotations
+from zope.component import getMultiAdapter
 from zope.interface import alsoProvides
 
 import transaction
@@ -18,6 +21,9 @@ import xml.etree.ElementTree as ET
 
 
 class PaymentConfirmation(BrowserView):
+
+    extra_template = ViewPageTemplateFile("extra_template.pt")
+
     def get_annotation_context(self):
         parent = aq_parent(self.context)
         if (
@@ -132,6 +138,18 @@ class PaymentConfirmation(BrowserView):
 
             self.request.form = form_data
 
+            body_post = self.context.getBody_post()
+            options = {
+                "datetime": self.datetime(),
+                "reference_number": data.get("reference_number"),
+            }
+
+            body_post_extra_info = self.extra_template(request=self.request, **options)
+            post_message = body_post + body_post_extra_info
+
+            self.context.setBody_post(post_message)
+            transaction.savepoint(1)
+
             # Mail to form owner
             self.context.send_form(
                 fields, self.request, to_addr=self.context.getRecipient_email()
@@ -143,6 +161,9 @@ class PaymentConfirmation(BrowserView):
                 self.context.send_form(
                     fields, self.request, to_addr=form_data.get(to_field, "")
                 )
+
+            self.context.setBody_post(body_post)
+            transaction.savepoint(1)
 
     def send_failure_form(self, payment_code, payment_error_message):
         data = self.get_payment_data(payment_code)
@@ -180,3 +201,8 @@ class PaymentConfirmation(BrowserView):
             self.context.setBody_post(body_post)
 
             transaction.savepoint(1)
+
+    def datetime(self):
+        now = DateTime()
+        ploneview = getMultiAdapter((self.context, self.request), name="plone")
+        return ploneview.toLocalizedTime(now, long_format=True)
