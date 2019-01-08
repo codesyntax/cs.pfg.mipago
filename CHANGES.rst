@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b18 (unreleased)
+1.0b18 (2019-01-08)
 -------------------
 
 - Get and save body and pre messages to avoid losing them.
