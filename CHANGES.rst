@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b21 (unreleased)
+1.0b21 (2019-01-08)
 -------------------
 
 - Translate error message.
