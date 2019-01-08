@@ -155,6 +155,8 @@ class PaymentConfirmation(BrowserView):
                 form_data[field["id"]] = field["value"]
                 fields.append(form.get(field["id"]))
 
+            body_pre = self.context.getBody_pre()
+            body_post = self.context.getBody_post()
             self.context.setBody_pre(payment_error_message)
             self.context.setBody_post(payment_error_message)
 
@@ -174,7 +176,7 @@ class PaymentConfirmation(BrowserView):
                     fields, self.request, to_addr=form_data.get(to_field, "")
                 )
 
-            self.context.setBody_pre("")
-            self.context.setBody_post("")
+            self.context.setBody_pre(body_pre)
+            self.context.setBody_post(body_post)
 
             transaction.savepoint(1)
