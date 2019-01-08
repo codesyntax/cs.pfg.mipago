@@ -4,7 +4,8 @@ Changelog
 1.0b110 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Extra error code checking.
+  [erral]
 
 
 1.0b19 (2019-01-08)
