@@ -4,7 +4,8 @@ Changelog
 1.0b18 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Get and save body and pre messages to avoid losing them.
+  [erral]
 
 
 1.0b17 (2019-01-07)
