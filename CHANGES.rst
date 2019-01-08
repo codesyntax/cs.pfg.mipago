@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b19 (unreleased)
+1.0b19 (2019-01-08)
 -------------------
 
 - Rework thanks page and confirmation email
