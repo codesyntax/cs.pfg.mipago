@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from Acquisition import aq_parent
+from cs.pfg.mipago import mipagoMessageFactory as _
 from cs.pfg.mipago.config import ANNOTATION_KEY
 from cs.pfg.mipago.config import MIPAGO_HTML_KEY
 from cs.pfg.mipago.config import MIPAGO_PAYMENT_CODE
@@ -14,6 +15,7 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.annotation.interfaces import IAnnotations
 from zope.component import getMultiAdapter
+from zope.i18n import translate
 from zope.interface import alsoProvides
 
 import transaction
@@ -99,7 +101,13 @@ class PaymentConfirmation(BrowserView):
             if eu is not None:
                 return eu.text.strip()
 
-            return "There was an error processing the payment"
+            return translate(_("There was an error processing the payment"))
+
+        codigo = root.find(".//estado/codigo")
+        if codigo is not None:
+            codigo = codigo.text.strip()
+            if codigo != "04":
+                return translate(_("There was an error processing the payment"))
 
         return ""
 
