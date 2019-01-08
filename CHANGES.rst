@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0b110 (unreleased)
---------------------
+1.0b20 (2019-01-08)
+-------------------
 
 - Extra error code checking.
   [erral]
