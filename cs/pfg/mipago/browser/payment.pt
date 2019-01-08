@@ -22,21 +22,6 @@
     <metal:fill fill-slot="content-core">
       <p tal:replace="structure view/get_thanks_prologue | nothing" />
 
-      <dl tal:define="payment view/get_payment_data" tal:condition="payment">
-        <tal:fields repeat="field payment/fields">
-          <dt tal:content="field/title">Name</dt>
-          <dd tal:content="field/value">John Doe</dd>
-        </tal:fields>
-
-        <dt i18n:translate=""> Payment code number </dt>
-
-        <dd tal:content="payment/reference_number"></dd>
-
-        <dt i18n:translate=""> Date and time </dt>
-
-        <dd tal:content="view/datetime"></dd>
-      </dl>
-
       <p tal:replace="structure view/get_thanks_epilogue | nothing" />
 
       <tal:dummy define="dummy view/clear_session"></tal:dummy>
