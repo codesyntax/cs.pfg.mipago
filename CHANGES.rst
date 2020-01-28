@@ -4,7 +4,8 @@ Changelog
 1.0b22 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Require tablib < 1.0.0.
+  [erral]
 
 
 1.0b21 (2019-01-08)
